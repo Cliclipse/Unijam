@@ -31,8 +31,16 @@ public class Move : MonoBehaviour
         
         else if (Input.GetKey(left))
         {
-            if (_rigidbody2D.velocity.x > 0 && _isGrounded) _rigidbody2D.velocity = new Vector2(0, 0);
-            if (-_rigidbody2D.velocity.x < maxSpeed) _rigidbody2D.velocity += speed * Time.deltaTime * Vector2.left;
+            Debug.Log("gacueh");
+            if (_rigidbody2D.velocity.x > 0 && _isGrounded)
+            {
+                Debug.Log("1");
+             _rigidbody2D.velocity = new Vector2(0, 0);
+            }
+            {
+                Debug.Log("2");
+                if (-_rigidbody2D.velocity.x < maxSpeed) _rigidbody2D.velocity += speed * Time.deltaTime * Vector2.left;
+            }
         }
         else if (_isGrounded)
         {
