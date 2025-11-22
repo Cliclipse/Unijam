@@ -41,7 +41,6 @@ public class Grappin : MonoBehaviour
             {
                 _isHooking = true;
                 _hookInstance = Instantiate(hook , transform.position , Quaternion.identity);
-                Debug.Log(_hookInstance);
                 _hookInstance.direction = (position - new Vector2(transform.position.x, transform.position.y) ).normalized;
                 _hookInstance.player = this;
             }
@@ -51,22 +50,25 @@ public class Grappin : MonoBehaviour
     
     private void _SetRushParam()
     {
-        _rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
         _isRushPrepared = true;
         
         _collider2DPolygon.enabled= true;
         _collider2DBox.enabled = false;
         
-        //_rigidbody2D.velocity = _direction * speedDashGrappin;
+        
+        _direction = (hookPosition - transform.position).normalized;
+        Debug.Log(_direction);
+        Debug.DrawRay(transform.position, _direction, Color.red);
+        _rigidbody2D.AddForce(speedDashGrappin * _direction , ForceMode2D.Impulse);
+        Debug.Log(_rigidbody2D.velocity);
         
         
     }
     
 
-
+/*
     private void SnkSimulation()
     {
-        _direction = (hookPosition - transform.position).normalized;
         Vector3 delta = speedDashGrappin * Time.deltaTime * _direction;
         if ((transform.position - hookPosition).magnitude < delta.magnitude)
         {
@@ -80,7 +82,7 @@ public class Grappin : MonoBehaviour
             _rigidbody2D.bodyType = RigidbodyType2D.Dynamic; 
         }
     }
-    
+ */   
 
 
 
@@ -95,6 +97,7 @@ public class Grappin : MonoBehaviour
         _collider2DPolygon.enabled= false;
         _collider2DBox.enabled = true;
         
+        //_rigidbody2D.bodyType = RigidbodyType2D.Dynamic; 
         Destroy(_hookInstance);
 
         
@@ -118,7 +121,6 @@ public class Grappin : MonoBehaviour
     {
         if (!_isGrabbing) ClicCheck();
         else if (!_isRushPrepared && isHooked) _SetRushParam();
-        else if (!_onTarget && isHooked) SnkSimulation();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
