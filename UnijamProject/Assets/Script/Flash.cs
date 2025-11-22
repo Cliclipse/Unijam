@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Flash : MonoBehaviour
 {
@@ -9,9 +10,10 @@ public class Flash : MonoBehaviour
     [SerializeField] private float flashLength =  0.2f;
     [SerializeField] private float cooldownLength = 1f;
     [SerializeField] private Collider2D collider ;
+    [SerializeField] private Image reloadImage;
 
     private float flashTimer = 0;
-    private float cooldownTimer = 0;
+    private bool cooldownTimer =true;
 
     void Start()
     {
@@ -21,13 +23,13 @@ public class Flash : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            if (cooldownTimer < 0)
+            if (cooldownTimer )
             {
-                cooldownTimer = cooldownLength;
+                StartCoroutine(Reload());
                 StartCoroutine(FlashBang());
+                cooldownTimer = false;
             }
         }
-        cooldownTimer -= Time.deltaTime;
     }
 
     IEnumerator FlashBang()
@@ -37,11 +39,26 @@ public class Flash : MonoBehaviour
         {
             light.intensity = curve.Evaluate(flashTimer/flashLength);
             flashTimer += Time.deltaTime;
+            reloadImage.fillAmount = 1-(flashTimer / flashLength);
             yield return new WaitForEndOfFrame();
         }
         collider.enabled = false;
         light.intensity = 0;
         flashTimer = 0;
+        
+    }
+
+    IEnumerator Reload()
+    {
+        float timing = 0;
+        while (timing < cooldownLength)
+        {
+            timing += Time.deltaTime;
+            
+            reloadImage.fillAmount = 1-(timing / cooldownLength);
+            yield return new WaitForEndOfFrame();
+        }
+        cooldownTimer = true;
         
     }
 }
