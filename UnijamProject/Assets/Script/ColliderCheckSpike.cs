@@ -13,7 +13,7 @@ public class ColliderCheckSpike : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Mort");
+            DeathManager.Instance.ResetScene();
         }
         
 
