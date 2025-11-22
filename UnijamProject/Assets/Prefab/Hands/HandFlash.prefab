@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 2019070132696663375}
   m_Layer: 7
   m_Name: lightbox
-  m_TagString: Untagged
+  m_TagString: Flash
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

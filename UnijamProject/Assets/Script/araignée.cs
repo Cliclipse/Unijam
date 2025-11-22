@@ -29,7 +29,7 @@ public class araignée : MonoBehaviour
 
         while (transform.position != posOrigin)
         {
-            transform.position = Vector3.MoveTowards(posOrigin, posTarget,speed*Time.deltaTime);
+            transform.position = Vector3.MoveTowards(posTarget, posOrigin,speed*Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
     }
