@@ -23,6 +23,13 @@ public class FallingObstacle : MonoBehaviour
         this.isFalling=newState;
     }
 
+    public void startFalling()
+    {
+        GetComponent<Rigidbody2D>().gravityScale=1;
+        this.setFalling(true);
+    }
+
+
     void OnCollisionEnter2D(Collision2D other)
     {  
         if (other.gameObject.CompareTag("Player"))

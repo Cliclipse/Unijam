@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColliderCheck : MonoBehaviour
-{   
-    [SerializeField] private GameObject obstacle;
+public class ColliderCheckSpike : MonoBehaviour
+{
+    //kills player when entering hitbox
     void Start()
     {
         Destroy(GetComponent<SpriteRenderer>());
@@ -13,11 +13,10 @@ public class ColliderCheck : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("trigger debris fall");
-            obstacle.GetComponent<Rigidbody2D>().gravityScale=1;
-            obstacle.GetComponent<FallingObstacle>().setFalling(true);
+            Debug.Log("Mort");
         }
         
 
     }
+
 }
