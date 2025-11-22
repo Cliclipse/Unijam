@@ -35,10 +35,12 @@ public class Moustique : MonoBehaviour
 
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnCollisionEnter(Collision collision)
     {
-
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            return; 
+        }
     }
 
     IEnumerator move()
