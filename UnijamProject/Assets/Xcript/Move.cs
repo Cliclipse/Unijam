@@ -25,10 +25,9 @@ public class Move : MonoBehaviour
 
     void JumpManager()
     {
-        if (Input.GetKeyDown(jumpButton))
+        if (Input.GetKeyDown(jumpButton) && Physics2D.Raycast(new Vector2(this.transform.position.x, this.transform.position.y), Vector2.down  , 0.8f , LayerMask.GetMask("Platform")))
         {
-            Boolean hit = Physics2D.Raycast(new Vector2(this.transform.position.x, this.transform.position.y), Vector2.down  , 0.1f , LayerMask.GetMask("Platform"));
-            Debug.Log(hit);
+            rigidbody2D.velocity = Vector2.zero;
             rigidbody2D.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         }
     }
