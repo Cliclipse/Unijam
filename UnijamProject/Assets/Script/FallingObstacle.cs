@@ -6,6 +6,8 @@ public class FallingObstacle : MonoBehaviour
 {
     [SerializeField] private bool fallInfinite;
 
+    [SerializeField] private bool fallAtStart;
+
     private bool isFalling = false;
     private Vector3 originPos;
     private Quaternion originRotation;
@@ -14,6 +16,16 @@ public class FallingObstacle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (this.fallAtStart)
+        {
+            this.startFalling();
+        }
+        else
+        {
+            this.GetComponent<Rigidbody2D>().gravityScale=0;
+            this.stopFalling();
+        }
+
         this.originPos=GetComponent<Transform>().position;
         this.originRotation=GetComponent<Transform>().rotation;
         
@@ -32,7 +44,7 @@ public class FallingObstacle : MonoBehaviour
 
     public void startFalling()
     {
-        GetComponent<Rigidbody2D>().gravityScale=1;
+        this.GetComponent<Rigidbody2D>().gravityScale=1;
         this.setFalling(true);
     }
 
@@ -45,10 +57,11 @@ public class FallingObstacle : MonoBehaviour
     private void TPOrigin()
     {
         Debug.Log("TP");
-        GetComponent<Transform>().position=this.originPos;
-        GetComponent<Transform>().rotation=this.originRotation;
-        GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-        GetComponent<Rigidbody2D>().angularVelocity = 0f;
+        
+        this.GetComponent<Transform>().position=this.originPos;
+        this.GetComponent<Transform>().rotation=this.originRotation;
+        this.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+        this.GetComponent<Rigidbody2D>().angularVelocity = 0f;
 
     }
 
