@@ -35,11 +35,11 @@ public class Moustique : MonoBehaviour
 
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            return; 
+            Debug.Log(" mort ");
         }
     }
 
@@ -53,39 +53,39 @@ public class Moustique : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
             GetComponent<Rigidbody2D>().gravityScale = 0;
-            Debug.Log("C'est fini");
+            //Debug.Log("C'est fini");
             while (this.transform.position != posTargetCote)
             {
                 this.transform.position = Vector3.MoveTowards(this.transform.position, posTargetCote, speed * Time.deltaTime);
                 yield return new WaitForEndOfFrame();
             }
-            Debug.Log("Oh nice");
+            //Debug.Log("Oh nice");
             transform.position = Vector3.MoveTowards(transform.position, posTargetBas, speed * Time.deltaTime);
             while (this.transform.position != posTargetBas)
             {
                 this.transform.position = Vector3.MoveTowards(transform.position, posTargetBas, speed * Time.deltaTime);
                 yield return new WaitForEndOfFrame();
             }
-            Debug.Log("Oh no");
+            //Debug.Log("Oh no");
             while (this.transform.position != posTargetCote)
             {
                 this.transform.position = Vector3.MoveTowards(transform.position, posTargetCote, speed * Time.deltaTime);
                 yield return new WaitForEndOfFrame();
             }
-            Debug.Log("Let me out");
+            //Debug.Log("Let me out");
 
             while (this.transform.position != posTargetHaut)
             {
                 transform.position = Vector3.MoveTowards(transform.position, posTargetHaut, speed * Time.deltaTime);
                 yield return new WaitForEndOfFrame();
             }
-            Debug.Log("pleure");
+            //Debug.Log("pleure");
             while (this.transform.position != pos_origin)
             {
                 transform.position = Vector3.MoveTowards(transform.position, pos_origin, speed * Time.deltaTime);
                 yield return new WaitForEndOfFrame();
             }
-            Debug.Log("c'est fini2");
+            //Debug.Log("c'est fini2");
         }
         
         
