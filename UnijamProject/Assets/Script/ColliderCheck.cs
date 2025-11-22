@@ -11,7 +11,13 @@ public class ColliderCheck : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("trigger eboulement");
-        obstacle.GetComponent<Rigidbody2D>().gravityScale=1;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("trigger debris fall");
+            obstacle.GetComponent<Rigidbody2D>().gravityScale=1;
+            obstacle.GetComponent<FallingObstacle>().setFalling(true);
+        }
+        
+
     }
 }

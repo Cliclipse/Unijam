@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class FallingObstacle : MonoBehaviour
 {
+    private bool isFalling = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -15,4 +17,25 @@ public class FallingObstacle : MonoBehaviour
     {
         
     }
+
+    public void setFalling(bool newState)
+    {
+        this.isFalling=newState;
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {  
+        if (other.gameObject.CompareTag("Player"))
+        {
+            if (isFalling)
+            {
+                Debug.Log("mort");
+            }
+        }
+        else 
+        {
+            this.setFalling(false);
+        }
+    }
+
 }
