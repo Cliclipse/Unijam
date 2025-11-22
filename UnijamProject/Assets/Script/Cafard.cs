@@ -21,8 +21,15 @@ public class Cafard : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Mort");
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("mort ");
+        }
+        else if (collision.gameObject.CompareTag("Flash"))
+        {
+            Debug.Log("cafard mort");
+        }
     }
 }
