@@ -124,7 +124,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5202681726048063951}
   - component: {fileID: 2965888068101927392}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Skin_Tempo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
