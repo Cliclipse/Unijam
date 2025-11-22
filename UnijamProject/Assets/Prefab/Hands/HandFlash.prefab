@@ -141,7 +141,7 @@ MonoBehaviour:
     m_RotationOrder: 4
   flashLength: 3
   cooldownLength: 5
-  collider: {fileID: 0}
+  collider: {fileID: 2019070132696663375}
 --- !u!61 &6485369058928610582
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -305,7 +305,7 @@ GameObject:
   - component: {fileID: 6731859191992849127}
   m_Layer: 0
   m_Name: Point Light
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
