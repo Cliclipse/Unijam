@@ -34,17 +34,15 @@ public class Grappin : MonoBehaviour
     {
         Vector3 mousePosition = Input.mousePosition;
         Vector2 position = cameraOfScene.ScreenToWorldPoint(mousePosition);
-        Collider2D detectedCollider = Physics2D.OverlapPoint(position, LayerMask.GetMask("Platform") );
-        
-        if (detectedCollider != null && Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0))
         {
-            _positionHitCible = detectedCollider.gameObject.transform.position;
             _isGrabbing = true;
             if (!_isHooking)
             {
                 _isHooking = true;
                 _hookInstance = Instantiate(hook , transform.position , Quaternion.identity);
-                _hookInstance.target = new Vector3(position.x, position.y);
+                Debug.Log(_hookInstance);
+                _hookInstance.direction = (position - new Vector2(transform.position.x, transform.position.y) ).normalized;
                 _hookInstance.player = this;
             }
         }
@@ -59,8 +57,11 @@ public class Grappin : MonoBehaviour
         _collider2DPolygon.enabled= true;
         _collider2DBox.enabled = false;
         
+        //_rigidbody2D.velocity = _direction * speedDashGrappin;
+        
         
     }
+    
 
 
     private void SnkSimulation()
@@ -71,8 +72,7 @@ public class Grappin : MonoBehaviour
         {
             transform.position = hookPosition;
             _onTarget = true; 
-            Destroy(_hookInstance);
-            ResetBools();
+            Reset();
         }
         else
         {
@@ -80,9 +80,11 @@ public class Grappin : MonoBehaviour
             _rigidbody2D.bodyType = RigidbodyType2D.Dynamic; 
         }
     }
+    
 
 
-    private void ResetBools()
+
+    public void Reset()
     {
         _isGrabbing = false;
         _isHooking = false;
@@ -92,6 +94,9 @@ public class Grappin : MonoBehaviour
         
         _collider2DPolygon.enabled= false;
         _collider2DBox.enabled = true;
+        
+        Destroy(_hookInstance);
+
         
     }
     
@@ -120,8 +125,7 @@ public class Grappin : MonoBehaviour
     {
         if (isHooked)
         {
-            ResetBools();
-            Destroy(_hookInstance);
+            Reset();
             _rigidbody2D.bodyType = RigidbodyType2D.Dynamic; 
         }
     }
