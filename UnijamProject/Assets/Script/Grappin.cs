@@ -13,34 +13,30 @@ public class Grappin : MonoBehaviour
     
     private Vector2 _positionHitCible;
     private Vector2 _direction;
-
+    private Hook _hookInstance;
+    
     
     private Rigidbody2D _rigidbody2D;
-    private Collider2D _collider2D;
+    private Collider2D _collider2DPolygon;
+    private Collider2D _collider2DBox;
+
 
     private bool _isGrabbing = false;
     private bool _isHooking = false;
-    public bool _isHooked = false;
+    public bool isHooked = false;
     private bool _isRushPrepared = false;
     private bool _onTarget = false;
 
     
-    // Start is called before the first frame update
-    void Start()
-    {
-        _rigidbody2D = GetComponent<Rigidbody2D>();
-        _collider2D = GetComponent<BoxCollider2D>();
 
-        _onTarget = false;
-        _direction = (hookPosition - transform.position).normalized;
-    }
 
     private void ClicCheck()
     {
         Vector3 mousePosition = Input.mousePosition;
         Vector2 position = cameraOfScene.ScreenToWorldPoint(mousePosition);
-        Collider2D detectedCollider = Physics2D.OverlapPoint(position, LayerMask.GetMask("Cible"));
+        Collider2D detectedCollider = Physics2D.OverlapPoint(position, LayerMask.GetMask("Platform") );
 
+        
         if (detectedCollider != null && Input.GetMouseButton(0))
         {
             _positionHitCible = detectedCollider.gameObject.transform.position;
@@ -54,56 +50,75 @@ public class Grappin : MonoBehaviour
         if (!_isHooking)
         {
             _isHooking = true;
-            Hook hookInstance = Instantiate(hook , transform.position , Quaternion.identity);
-            hookInstance.target = _positionHitCible;
-            hookInstance.player = this;
+            _hookInstance = Instantiate(hook , transform.position , Quaternion.identity);
+            _hookInstance.target = _positionHitCible;
+            _hookInstance.player = this;
         }
     }
     
     private void _SetRushParam()
     {
         _rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
-        _direction = (hookPosition - transform.position).normalized;
         _isRushPrepared = true;
     }
 
 
     private void SnkSimulation()
     {
+        _direction = (hookPosition - transform.position).normalized;
         Vector3 delta = speedDashGrappin * Time.deltaTime * _direction;
-        if (Vector2.Distance(transform.position, hookPosition) < delta.magnitude)
+        if ((transform.position - hookPosition).magnitude < delta.magnitude)
         {
             transform.position = hookPosition;
             _onTarget = true; 
-            _collider2D.enabled = false; 
-            
+            Destroy(_hookInstance);
+            ResetBools();
         }
         else
         {
             transform.position += delta;
             _rigidbody2D.bodyType = RigidbodyType2D.Dynamic; 
         }
-        
     }
 
-    private void SpiderManSimulation()
+
+    private void ResetBools()
     {
-        Debug.Log("Spider Man");
-        if (!Input.GetMouseButton(0))
-        {
-            
-        }
+        _isGrabbing = false;
+        _isHooking = false;
+        isHooked = false;
+        _isRushPrepared = false;
+        _onTarget = false;
     }
-
     
-    // Update is called once per frame
+    
+    void Start()
+    {
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+        
+        _collider2DBox = GetComponent<PolygonCollider2D>();
+        _collider2DPolygon = GetComponent<PolygonCollider2D>();
+        
+        _collider2DPolygon.enabled= false;
+        _collider2DBox.enabled = true;
+
+        _onTarget = false;
+        _direction = (hookPosition - transform.position).normalized;
+    }
     void Update()
     {
-        Debug.Log(_onTarget);
         if (!_isGrabbing) ClicCheck();
-        else if (!_isHooked) Hook();
-        else if (!_isRushPrepared && _isHooked) _SetRushParam();
+        else if (!isHooked) Hook();
+        else if (!_isRushPrepared && isHooked) _SetRushParam();
         else if (!_onTarget) SnkSimulation();
         
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        ResetBools();
+        Destroy(_hookInstance);
+        _rigidbody2D.bodyType = RigidbodyType2D.Dynamic; 
+
     }
 }

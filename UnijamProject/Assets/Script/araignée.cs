@@ -5,32 +5,49 @@ using UnityEngine;
 public class araignée : MonoBehaviour
 {
     private Vector3 posOrigin;
-    private  Vector3 posTarget;
-    public float speed = 5.0f ;
+    private Vector3 posTarget;
+    public float speed = 5f;
     public float largeur = 10.0f;
+
     private bool enVie = true;
+
     // Start is called before the first frame update
     void Start()
     {
         posOrigin = transform.position;
         posTarget = transform.position;
-        posTarget[0] +=largeur;
+        posTarget[0] += largeur;
         StartCoroutine(move());
     }
-
+    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            Debug.Log(" mort ");
+        }
+    }
+    
     // Update is called once per frame
     IEnumerator move()
     {
-        while (transform.position != posTarget)
+        while (enVie)
         {
-            transform.position = Vector3.MoveTowards(transform.position, posTarget,speed*Time.deltaTime);
-            yield return new WaitForEndOfFrame();
+            while (transform.position != posTarget)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, posTarget, speed * Time.deltaTime);
+                yield return new WaitForEndOfFrame();
+            }
+
+            Debug.Log("Mehh");
+
+            while (transform.position != posOrigin)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, posOrigin, speed * Time.deltaTime);
+                yield return new WaitForEndOfFrame();
+            }
         }
 
-        while (transform.position != posOrigin)
-        {
-            transform.position = Vector3.MoveTowards(posTarget, posOrigin,speed*Time.deltaTime);
-            yield return new WaitForEndOfFrame();
-        }
     }
 }
+
