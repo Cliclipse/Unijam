@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1946766408426224230}
   - component: {fileID: 9133901950908543639}
   - component: {fileID: 8428001944116930735}
-  - component: {fileID: 3626146737138698217}
+  - component: {fileID: 7730283433393583335}
   m_Layer: 0
   m_Name: Cafard
   m_TagString: Untagged
@@ -159,7 +159,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &3626146737138698217
+--- !u!114 &7730283433393583335
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -168,7 +168,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5657891256027945220}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ce407978c9fcb14fa85b7d9f31dead2, type: 3}
+  m_Script: {fileID: 11500000, guid: 74b282c1036291115922d022364bc6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
