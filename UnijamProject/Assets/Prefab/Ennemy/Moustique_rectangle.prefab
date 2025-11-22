@@ -219,6 +219,7 @@ MonoBehaviour:
   speed: 5
   hauteur: 3
   largeur: 10
+  mosquitoSound: {fileID: 4244012945762865342}
 --- !u!82 &4244012945762865342
 AudioSource:
   m_ObjectHideFlags: 0
@@ -229,7 +230,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 3440631409655039846, guid: a1cfa3138cde99f4d91bd767c5de87e9, type: 2}
-  m_audioClip: {fileID: 8300000, guid: b5ef9e5618da35345ad59aad1b836d0b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: acd570ad261ec754a9719af60dc51d96, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

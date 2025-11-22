@@ -24,6 +24,8 @@ public class Move : MonoBehaviour
     private Animator _animator;
     private int _runHashCode;
     private int _jumpHashCode;
+    public static Move Instance;
+
 
     void MoveManager()
     {
@@ -76,6 +78,7 @@ public class Move : MonoBehaviour
         _colliderSize = _bc2D.size;
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = gameObject.GetComponentInChildren<Animator>();
+        Instance = this;
     }
 
     protected void Awake()

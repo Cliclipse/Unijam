@@ -14,10 +14,12 @@ public class Moustique : MonoBehaviour
     public float hauteur= 3.0f;
     public float largeur = 10.0f;
     private bool enVie = true;
-    
-    
-    
-    
+    [SerializeField] private AudioSource mosquitoSound;
+
+
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,7 +36,16 @@ public class Moustique : MonoBehaviour
         enVie = true;
 
     }
-
+    void Update()
+    {
+       son_distance();
+    }
+    void son_distance()
+    {
+        float distance= Vector3.Distance(Move.Instance.transform.position, this.transform.position);
+        Debug.Log(distance);
+        mosquitoSound.volume = 1 / (distance/5);       
+    }
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
