@@ -74,6 +74,7 @@ public class FallingObstacle : MonoBehaviour
             if (isFalling)
             {
                 Debug.Log("mort");
+                DeathManager.Instance.ResetScene();
             }
         }
         else 
