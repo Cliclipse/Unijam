@@ -21,6 +21,9 @@ public class Move : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private Boolean _isGrounded;
     
+    private Animator _animator;
+    private int _runHashCode;
+    private int _jumpHashCode;
 
     void MoveManager()
     {
@@ -43,7 +46,15 @@ public class Move : MonoBehaviour
         {
             _rigidbody2D.velocity = new Vector2(0 , _rigidbody2D.velocity.y);
         }
-        
+
+        if (_rigidbody2D.velocity.magnitude == 0 || !_isGrounded)
+        {
+            _animator.SetBool(_runHashCode, false);
+        }
+        else 
+        {
+            _animator.SetBool(_runHashCode, true);
+        }
     }
 
     void JumpManager()
@@ -51,6 +62,7 @@ public class Move : MonoBehaviour
         if (Input.GetKeyDown(jumpButton) && _isGrounded )
         {
             _isGrounded = false;
+            _animator.SetBool(_jumpHashCode, true);
             _rigidbody2D.velocity = new Vector2(_rigidbody2D.velocity.x, 0f);
             _rigidbody2D.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         }
@@ -63,14 +75,23 @@ public class Move : MonoBehaviour
         _bc2D = GetComponent<BoxCollider2D>();
         _colliderSize = _bc2D.size;
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _animator = gameObject.GetComponentInChildren<Animator>();
     }
 
+    protected void Awake()
+    {
+        _runHashCode = Animator.StringToHash("IsWalking");
+        _jumpHashCode = Animator.StringToHash("IsJumping");
+    }
 
-//    
     private void CheckGround()
     { 
 
         _isGrounded = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.5f), Vector2.down, 0.3f , LayerMask.GetMask("Platform"));
+        if (_isGrounded)
+        {
+            _animator.SetBool(_jumpHashCode, false);
+        }
     }
 
     /*

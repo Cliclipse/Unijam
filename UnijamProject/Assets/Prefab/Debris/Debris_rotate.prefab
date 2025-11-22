@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -3.491914, y: 1.8691955, z: 0.0011263937}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.3833, y: 12.521818, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8949127937765024765}
@@ -113,7 +113,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 1
 --- !u!61 &1250900325501565336
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -181,8 +181,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5262309376752810120}
   - component: {fileID: 5383119377462193668}
-  - component: {fileID: 1529535180888320618}
   - component: {fileID: 1599217671794976180}
+  - component: {fileID: 402629098401263335}
   m_Layer: 0
   m_Name: DetectPlayer
   m_TagString: Untagged
@@ -257,19 +257,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &1529535180888320618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6781264422874793418}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c39b7ff102d34a329e41cb788b89cce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  obstacle: {fileID: 4214607087463685551}
 --- !u!61 &1599217671794976180
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -315,6 +302,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &402629098401263335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6781264422874793418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 220cdf90943a7d7769c4177886582da6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacle: {fileID: 4214607087463685551}
+  forceAmount: 500
 --- !u!1 &7030613198550351457
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +326,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8949127937765024765}
   m_Layer: 0
-  m_Name: Debris
+  m_Name: Debris_rotate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

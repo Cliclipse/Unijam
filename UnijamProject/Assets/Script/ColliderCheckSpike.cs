@@ -2,16 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColliderCheck : MonoBehaviour
-{   
-    [SerializeField] private GameObject obstacle;
+public class ColliderCheckSpike : MonoBehaviour
+{
+    //kills player when entering hitbox
     void Start()
     {
         Destroy(GetComponent<SpriteRenderer>());
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("trigger eboulement");
-        obstacle.GetComponent<Rigidbody2D>().gravityScale=1;
+        if (other.gameObject.CompareTag("Player"))
+        {
+            Debug.Log("Mort");
+        }
+        
+
     }
+
 }

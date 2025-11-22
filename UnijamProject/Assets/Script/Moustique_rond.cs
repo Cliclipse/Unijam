@@ -29,5 +29,12 @@ namespace Script
             Vector2 offset = new Vector2(Mathf.Sin(currentAngle), Mathf.Cos(currentAngle)) * circleRad;
             transform.position = fixedPoint + offset;
         }
+        void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("Player"))
+            {
+                Debug.Log(" mort ");
+            }
+        }
     }
 }
