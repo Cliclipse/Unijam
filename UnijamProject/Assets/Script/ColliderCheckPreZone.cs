@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ColliderCheckPreZone : MonoBehaviour
-{   
+{
     //intiates fall of obstacle object when entering hitbox
     [SerializeField] private GameObject obstacle;
+    [SerializeField]  private AudioSource audioSourcefall;
+    
 
     void Start()
     {
@@ -18,7 +20,7 @@ public class ColliderCheckPreZone : MonoBehaviour
 
             if (!obstacle.GetComponent<FallingObstacle>().getDidFall())
             {
-                Debug.Log("start music brbrbrbrbr");
+               audioSourcefall.Play(); ;
             }
         }
     }
@@ -26,7 +28,7 @@ public class ColliderCheckPreZone : MonoBehaviour
     {        
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("stop music brbrbrbrbr");
+            audioSourcefall.Stop();
         }
     }
 }

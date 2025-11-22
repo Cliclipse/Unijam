@@ -15,6 +15,9 @@ public class FallingObstacle : MonoBehaviour
 
     private bool didFall = false;
 
+    [SerializeField] private AudioSource audioSourcefall;
+    [SerializeField] private AudioSource audioSourceboom;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,7 +58,7 @@ public class FallingObstacle : MonoBehaviour
 
     public void startFalling()
     {
-        Debug.Log("Stop music brbrbrbr");
+        audioSourcefall.Stop();
         this.GetComponent<Rigidbody2D>().gravityScale=1;
         this.setFalling(true);
     }
@@ -91,7 +94,7 @@ public class FallingObstacle : MonoBehaviour
         }
         else 
         {   
-            Debug.Log("Start music BOOM");
+            audioSourceboom.Play();
             if (!fallInfinite){
                 this.stopFalling();
             }
