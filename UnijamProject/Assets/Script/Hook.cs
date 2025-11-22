@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -27,9 +28,8 @@ public class Hook : MonoBehaviour
         {
             transform.position = target;
             _onTarget = true;
-            player._isHooked = true;
+            player.isHooked = true;
             player.hookPosition = transform.position ;
-            
         }
         else
         {
@@ -41,5 +41,11 @@ public class Hook : MonoBehaviour
     void Update()
     {
         if (!_onTarget) Rush();
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Debug.Log("Test");
+        Destroy(gameObject);
     }
 }
