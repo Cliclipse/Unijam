@@ -57,10 +57,11 @@ public class Grappin : MonoBehaviour
         
         
         _direction = (hookPosition - transform.position).normalized;
-        Debug.Log(_direction);
-        Debug.DrawRay(transform.position, _direction, Color.red);
+        transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f , transform.position.z);
+        
+        transform.position += Time.deltaTime * speedDashGrappin * new Vector3(_direction.x, _direction.y, 0);
+        _rigidbody2D.gravityScale = 0f;
         _rigidbody2D.AddForce(speedDashGrappin * _direction , ForceMode2D.Impulse);
-        Debug.Log(_rigidbody2D.velocity);
         
         
     }
@@ -96,6 +97,8 @@ public class Grappin : MonoBehaviour
         
         _collider2DPolygon.enabled= false;
         _collider2DBox.enabled = true;
+        _rigidbody2D.gravityScale = 1f;
+        _rigidbody2D.velocity = Vector2.zero;
         
         //_rigidbody2D.bodyType = RigidbodyType2D.Dynamic; 
         Destroy(_hookInstance);
