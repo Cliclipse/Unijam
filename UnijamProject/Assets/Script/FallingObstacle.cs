@@ -8,10 +8,12 @@ public class FallingObstacle : MonoBehaviour
 
     [SerializeField] private bool fallAtStart;
 
+    [SerializeField] private bool notDeadly;
     private bool isFalling = false;
     private Vector3 originPos;
     private Quaternion originRotation;
 
+    private bool didFall = false;
 
     // Start is called before the first frame update
     void Start()
@@ -39,11 +41,21 @@ public class FallingObstacle : MonoBehaviour
 
     private void setFalling(bool newState)
     {
+        if (newState)
+        {
+            this.didFall=true;
+        }
         this.isFalling=newState;
+    }
+
+    public bool getDidFall()
+    {
+        return this.didFall;
     }
 
     public void startFalling()
     {
+        Debug.Log("Stop music brbrbrbr");
         this.GetComponent<Rigidbody2D>().gravityScale=1;
         this.setFalling(true);
     }
@@ -71,13 +83,14 @@ public class FallingObstacle : MonoBehaviour
     {  
         if (other.gameObject.CompareTag("Player"))
         {
-            if (isFalling)
+            if (isFalling && !notDeadly)
             {
                 Debug.Log("mort");
             }
         }
         else 
         {   
+            Debug.Log("Start music BOOM");
             if (!fallInfinite){
                 this.stopFalling();
             }
