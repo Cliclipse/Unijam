@@ -8,10 +8,15 @@ public class Flash : MonoBehaviour
     [SerializeField] private AnimationCurve curve;
     [SerializeField] private float flashLength =  0.2f;
     [SerializeField] private float cooldownLength = 1f;
+    [SerializeField] private Collider2D collider ;
 
     private float flashTimer = 0;
     private float cooldownTimer = 0;
-    
+
+    void Start()
+    {
+        collider.enabled = false;
+    }
     void Update()
     {
         if (Input.GetMouseButton(0))
@@ -27,13 +32,16 @@ public class Flash : MonoBehaviour
 
     IEnumerator FlashBang()
     {
+        collider.enabled = true;
         while (flashTimer <= flashLength)
         {
             light.intensity = curve.Evaluate(flashTimer/flashLength);
             flashTimer += Time.deltaTime;
             yield return new WaitForEndOfFrame();
         }
+        collider.enabled = false;
         light.intensity = 0;
         flashTimer = 0;
+        
     }
 }
