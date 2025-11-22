@@ -171,6 +171,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 819134aecffeeba028a853482c102f40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fallInfinite: 1
+  fallAtStart: 1
 --- !u!1 &6781264422874793418
 GameObject:
   m_ObjectHideFlags: 0
