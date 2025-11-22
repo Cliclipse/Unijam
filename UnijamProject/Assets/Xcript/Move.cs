@@ -9,9 +9,9 @@ public class Move : MonoBehaviour
     [SerializeField] private KeyCode right = KeyCode.D;
     [SerializeField] private KeyCode left = KeyCode.A;
     [SerializeField] private KeyCode jumpButton = KeyCode.W;
-    [SerializeField] private float speed;
-    [SerializeField] private float jumpPower;
-    [SerializeField] private float maxSpeed;
+    [SerializeField] private float speed = 5f;
+    [SerializeField] private float jumpPower = 10f;
+    [SerializeField] private float maxSpeed = 10f;
     
     [SerializeField] private float slopeCheckDistance;
 
@@ -31,14 +31,11 @@ public class Move : MonoBehaviour
         
         else if (Input.GetKey(left))
         {
-            Debug.Log("gacueh");
             if (_rigidbody2D.velocity.x > 0 && _isGrounded)
             {
-                Debug.Log("1");
              _rigidbody2D.velocity = new Vector2(0, 0);
             }
             {
-                Debug.Log("2");
                 if (-_rigidbody2D.velocity.x < maxSpeed) _rigidbody2D.velocity += speed * Time.deltaTime * Vector2.left;
             }
         }
