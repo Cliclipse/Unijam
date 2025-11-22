@@ -35,31 +35,31 @@ public class Grappin : MonoBehaviour
         Vector3 mousePosition = Input.mousePosition;
         Vector2 position = cameraOfScene.ScreenToWorldPoint(mousePosition);
         Collider2D detectedCollider = Physics2D.OverlapPoint(position, LayerMask.GetMask("Platform") );
-
         
         if (detectedCollider != null && Input.GetMouseButton(0))
         {
             _positionHitCible = detectedCollider.gameObject.transform.position;
             _isGrabbing = true;
-        }
-
-    }
-
-    private void Hook()
-    {
-        if (!_isHooking)
-        {
-            _isHooking = true;
-            _hookInstance = Instantiate(hook , transform.position , Quaternion.identity);
-            _hookInstance.target = _positionHitCible;
-            _hookInstance.player = this;
+            if (!_isHooking)
+            {
+                _isHooking = true;
+                _hookInstance = Instantiate(hook , transform.position , Quaternion.identity);
+                _hookInstance.target = new Vector3(position.x, position.y);
+                _hookInstance.player = this;
+            }
         }
     }
+    
     
     private void _SetRushParam()
     {
         _rigidbody2D.bodyType = RigidbodyType2D.Kinematic;
         _isRushPrepared = true;
+        
+        _collider2DPolygon.enabled= true;
+        _collider2DBox.enabled = false;
+        
+        
     }
 
 
@@ -89,6 +89,10 @@ public class Grappin : MonoBehaviour
         isHooked = false;
         _isRushPrepared = false;
         _onTarget = false;
+        
+        _collider2DPolygon.enabled= false;
+        _collider2DBox.enabled = true;
+        
     }
     
     
@@ -108,17 +112,17 @@ public class Grappin : MonoBehaviour
     void Update()
     {
         if (!_isGrabbing) ClicCheck();
-        else if (!isHooked) Hook();
         else if (!_isRushPrepared && isHooked) _SetRushParam();
-        else if (!_onTarget) SnkSimulation();
-        
+        else if (!_onTarget && isHooked) SnkSimulation();
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        ResetBools();
-        Destroy(_hookInstance);
-        _rigidbody2D.bodyType = RigidbodyType2D.Dynamic; 
-
+        if (isHooked)
+        {
+            ResetBools();
+            Destroy(_hookInstance);
+            _rigidbody2D.bodyType = RigidbodyType2D.Dynamic; 
+        }
     }
 }

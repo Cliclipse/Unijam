@@ -142,7 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraOfScene: {fileID: 0}
   hook: {fileID: 2206841067571638798, guid: a404097bd4f0f8c43adff61dad45549f, type: 3}
-  speedDashGrappin: 50
+  speedDashGrappin: 30
   hookPosition: {x: 0, y: 0, z: 0}
   isHooked: 0
 --- !u!60 &7652299352545969161

@@ -78,7 +78,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f972394ce181f2f48876768a7ee75416, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 25
   player: {fileID: 0}
   target: {x: 0, y: 0}
 --- !u!58 &-8978730659615868770

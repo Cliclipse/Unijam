@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Hook : MonoBehaviour
 {
-    [SerializeField] private float speed = 70f;
+    [SerializeField] private float speed = 90f;
 
 
     public Grappin player;
@@ -20,16 +20,21 @@ public class Hook : MonoBehaviour
         _direction = (target - new Vector2(transform.position.x, transform.position.y) ).normalized;
     }
 
+    void FixHook()
+    {
+        transform.position = target;
+        _onTarget = true;
+        player.isHooked = true;
+        player.hookPosition = transform.position ;
+    }
+    
     //S'optimise en faisant pas la distance pour épargner la rac carrée
     private void Rush()
     {
         Vector3 delta = speed * Time.deltaTime * _direction;
         if (Vector2.Distance(transform.position, target) < delta.magnitude)
         {
-            transform.position = target;
-            _onTarget = true;
-            player.isHooked = true;
-            player.hookPosition = transform.position ;
+            FixHook();
         }
         else
         {
@@ -38,14 +43,13 @@ public class Hook : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() 
     {
         if (!_onTarget) Rush();
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Test");
-        Destroy(gameObject);
+        FixHook();
     }
 }
