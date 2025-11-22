@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8008015811040592371}
   - component: {fileID: 8058798689900585532}
   - component: {fileID: 6485369058928610582}
-  - component: {fileID: -1852944260620222760}
+  - component: {fileID: 6539114677063866307}
   m_Layer: 7
   m_Name: HandGrappin
   m_TagString: Untagged
@@ -127,7 +127,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &-1852944260620222760
+--- !u!114 &6539114677063866307
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,9 +136,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 3443751708600461271}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f972394ce181f2f48876768a7ee75416, type: 3}
+  m_Script: {fileID: 11500000, guid: 8bce0e92d3835bc42bcdeedbea8e285b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cibleMaskLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  cameraOfScene: {fileID: 0}
+  hook: {fileID: 2206841067571638798, guid: a404097bd4f0f8c43adff61dad45549f, type: 3}
 --- !u!1 &3822469522874868910
 GameObject:
   m_ObjectHideFlags: 0
