@@ -39,7 +39,7 @@ public class Moustique : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log(" mort ");
+            DeathManager.Instance.ResetScene();
         }
     }
 
