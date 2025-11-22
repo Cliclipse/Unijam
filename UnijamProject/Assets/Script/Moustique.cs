@@ -10,7 +10,9 @@ public class Moustique : MonoBehaviour
     private Vector3 posTargetHaut;
     private Vector3 posTargetCote;
     private Vector3 posTargetBas;
-    private float speed = 5.0f ;
+    public float speed = 5.0f ;
+    public float hauteur= 3.0f;
+    public float largeur = 10.0f;
     private bool enVie = true;
     
     
@@ -22,11 +24,11 @@ public class Moustique : MonoBehaviour
         //recupere la position de notre moustique a l'origine.
         pos_origin = transform.position;
         posTargetHaut = pos_origin;
-        posTargetHaut[1] += 3;
+        posTargetHaut[1] += hauteur;
         posTargetCote = posTargetHaut;
-        posTargetCote[0] -= 10;
+        posTargetCote[0] -= largeur;
         posTargetBas = posTargetCote;
-        posTargetBas[1] -= 3;
+        posTargetBas[1] -= hauteur;
         GetComponent<Rigidbody2D>().gravityScale = 0;
         StartCoroutine(move());
         enVie = true;
