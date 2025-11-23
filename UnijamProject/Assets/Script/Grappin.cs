@@ -13,6 +13,7 @@ public class Grappin : MonoBehaviour
     
     public LineRenderer line;
 
+    private float _drag;
     
     public Vector3 hookPosition;
     
@@ -66,6 +67,7 @@ public class Grappin : MonoBehaviour
         
         _collider2DPolygon.enabled= true;
         _collider2DBox.enabled = false;
+        _rigidbody2D.drag = 0;
         
         
         _direction = (hookPosition - transform.position).normalized;
@@ -89,6 +91,7 @@ public class Grappin : MonoBehaviour
         _collider2DPolygon.enabled= false;
         _collider2DBox.enabled = true;
         _rigidbody2D.velocity = Vector2.zero;
+        _rigidbody2D.drag = _drag;
         
         Destroy(_hookInstance.gameObject);
 
@@ -113,6 +116,8 @@ public class Grappin : MonoBehaviour
         _direction = (hookPosition - transform.position).normalized;
         
         _distCamera = cameraOfScene.transform.position.z;
+        _drag = _rigidbody2D.drag;
+
     }
     void Update()
     {
