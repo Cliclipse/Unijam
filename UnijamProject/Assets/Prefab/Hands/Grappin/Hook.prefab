@@ -81,6 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 25
   maxRange: 20
+  minRange: 1.5
   player: {fileID: 0}
   direction: {x: 0, y: 0}
 --- !u!58 &-8978730659615868770

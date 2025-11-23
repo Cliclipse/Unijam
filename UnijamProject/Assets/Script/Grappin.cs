@@ -38,15 +38,17 @@ public class Grappin : MonoBehaviour
     private void ClicCheck()
     {
         Vector3 mousePosition = Input.mousePosition;
-        Vector2 position = cameraOfScene.ScreenToWorldPoint(mousePosition);
+        Vector2 positionClic = cameraOfScene.ScreenToWorldPoint(mousePosition);
+        Debug.Log(positionClic);
         if (Input.GetMouseButton(0))
         {
             _isGrabbing = true;
             if (!_isHooking)
             {
                 _isHooking = true;
-                _hookInstance = Instantiate(hook , transform.position , Quaternion.identity);
-                _hookInstance.direction = (position - new Vector2(transform.position.x, transform.position.y) ).normalized;
+                _hookInstance = Instantiate(hook , transform);
+                _hookInstance.transform.localScale *=2 ;
+                _hookInstance.direction = (positionClic - new Vector2(transform.position.x, transform.position.y) ).normalized;
                 _hookInstance.player = this;
             }
         }
@@ -90,7 +92,7 @@ public class Grappin : MonoBehaviour
     
     void Start()
     {
-        Physics.defaultMaxDepenetrationVelocity = 10f;
+        Physics.defaultMaxDepenetrationVelocity = 5f;
         _rigidbody2D = GetComponent<Rigidbody2D>();
         
         _collider2DBox = GetComponent<PolygonCollider2D>();
