@@ -63,13 +63,13 @@ public class Cafard : MonoBehaviour
                 yield return new WaitForEndOfFrame();
             }
 
-            Debug.Log("Mehh");
-
+            transform.Rotate(0, 180, 0);
             while (transform.position != posOrigin)
             {
                 transform.position = Vector3.MoveTowards(transform.position, posOrigin, speed * Time.deltaTime);
                 yield return new WaitForEndOfFrame();
             }
+            transform.Rotate(0, 180, 0);
         }
     }
 
