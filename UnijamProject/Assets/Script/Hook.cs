@@ -7,6 +7,7 @@ public class Hook : MonoBehaviour
 {
     [SerializeField] private float speed = 90f;
     [SerializeField] private float maxRange = 20f;
+    [SerializeField] private float minRange = 0.25f;
 
 
     public Grappin player;
@@ -48,6 +49,15 @@ public class Hook : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        FixHook(collision.GetContact(0).point);
+        if ((player.transform.position - transform.position).magnitude > minRange)
+        {
+            FixHook(collision.GetContact(0).point);
+        }
+        else
+        {
+            Destroy(gameObject);
+            player.Reset();
+
+        }
     }
 }

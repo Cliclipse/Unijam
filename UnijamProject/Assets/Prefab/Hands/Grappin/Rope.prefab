@@ -75,10 +75,10 @@ LineRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Positions:
-  - {x: 30.863066, y: -0.79551196, z: 0}
-  - {x: 31.169987, y: 3.078161, z: 0}
-  - {x: 2.0938053, y: -0.5450488, z: 0}
-  - {x: 14.68142, y: 7.4392257, z: 0}
+  - {x: 33.958588, y: 7.6148725, z: 0}
+  - {x: 51.427372, y: 17.3062, z: 0}
+  - {x: 40.85094, y: 9.764518, z: 0}
+  - {x: 41.778458, y: 9.787334, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
