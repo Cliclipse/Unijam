@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -45,7 +46,7 @@ public class DeathManager :MonoBehaviour
               else
               {
                      DeathMenu.SetActive(false);
-                     StartCoroutine(UnfadeCoroutine(false));
+                     StartCoroutine(UnfadeCoroutine(true));
               }
        }
 
@@ -55,17 +56,22 @@ public class DeathManager :MonoBehaviour
               DeathMenu.SetActive(true);
               if (end == true)
               {
-                     EndScreen.gameObject.SetActive(true);   
+                     EndScreen.gameObject.SetActive(true);
+                     
               }
-              Color fadecolor = new Color(0, 0, 0, 255f);
-              DeathMenu.GetComponent<Image>().color = fadecolor;
-              //yield return new WaitForSeconds(1f);
-              for (int i = 0; i < 100; i++)
+              else
               {
-                     fadecolor = new Color(0, 0, 0, (Mathf.Lerp(0, 1, (100-i)/10000.0f)*255f));
+                     Color fadecolor = new Color(0, 0, 0, 255f);
                      DeathMenu.GetComponent<Image>().color = fadecolor;
-                     yield return new WaitForEndOfFrame();
-              } 
+                     //yield return new WaitForSeconds(1f);
+                     for (int i = 0; i < 100; i++)
+                     {
+                            fadecolor = new Color(0, 0, 0, (Mathf.Lerp(0, 1, (100-i)/10000.0f)*255f));
+                            DeathMenu.GetComponent<Image>().color = fadecolor;
+                            yield return new WaitForEndOfFrame();
+                     }    
+              }
+              
               DeathMenu.SetActive((false));
               
        }
