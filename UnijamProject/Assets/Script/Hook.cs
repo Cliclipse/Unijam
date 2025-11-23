@@ -17,7 +17,6 @@ public class Hook : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log(direction);
         _onTarget = false;
     }
 
@@ -52,12 +51,10 @@ public class Hook : MonoBehaviour
     {
         if ((player.transform.position - transform.position).magnitude > minRange)
         {
-            Debug.Log("test");
             FixHook(collision.GetContact(0).point);
         }
         else
         {
-            Debug.Log("test2");
             Destroy(gameObject);
             player.Reset();
 
