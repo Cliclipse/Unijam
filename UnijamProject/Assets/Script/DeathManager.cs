@@ -28,6 +28,44 @@ public class DeathManager :MonoBehaviour
               StartCoroutine(FadeCoroutine(end));
        }
 
+       public void TransitionScene()
+       {
+              StartCoroutine(TransitionFadeCoroutine());
+       }
+
+       IEnumerator TransitionFadeCoroutine()
+       {
+              DeathMenu.SetActive(true);
+              for (int i = 0; i < 100; i++)
+              {
+                     Color fadecolor = new Color(0, 0, 0, Mathf.Lerp(0, 1, i/10000.0f)*255f);
+                     DeathMenu.GetComponent<Image>().color = fadecolor;
+                     yield return new WaitForEndOfFrame();
+              }
+              DeathMenu.SetActive(false);
+              string text = "";
+              if (SceneManager.GetActiveScene().name == "IntroCutScene")
+              {
+                     text = "nv1_L";
+              }
+              else if (SceneManager.GetActiveScene().name == "nv1_L")
+              {
+                     text = "nv1_G";
+              }
+              else if (SceneManager.GetActiveScene().name == "nv1_G")
+              {
+                     text = "nv2_L";
+              }
+              else if (SceneManager.GetActiveScene().name == "nv2_L")
+              {
+                     text = "nv2_G";
+              }
+              else if (SceneManager.GetActiveScene().name == "nv2_G")
+              {
+                     text = "EndScene";
+              }
+              SceneManager.LoadScene(text);
+       }
        IEnumerator FadeCoroutine(bool end=false)
        {
               DeathMenu.SetActive(true);
@@ -53,7 +91,7 @@ public class DeathManager :MonoBehaviour
        IEnumerator UnfadeCoroutine(bool end)
        {
               
-              DeathMenu.SetActive(true);
+             
               if (end == true)
               {
                      EndScreen.gameObject.SetActive(true);
@@ -61,6 +99,7 @@ public class DeathManager :MonoBehaviour
               }
               else
               {
+                     DeathMenu.SetActive(true);
                      Color fadecolor = new Color(0, 0, 0, 255f);
                      DeathMenu.GetComponent<Image>().color = fadecolor;
                      //yield return new WaitForSeconds(1f);

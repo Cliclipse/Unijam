@@ -6,6 +6,7 @@ public class SexManager : MonoBehaviour
     [SerializeField] private GameObject leftHand;
     [SerializeField] private GameObject rightHand;
     [SerializeField] private float much=.001f;
+    private bool advancing = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,7 +16,7 @@ public class SexManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0)&& advancing)
         {
             StartCoroutine(QTECorrection());
         }
@@ -42,6 +43,8 @@ public class SexManager : MonoBehaviour
         if (Vector2.Distance(leftHand.transform.position, rightHand.transform.position) <= .5f)
         {
             DeathManager.Instance.ResetScene(true);
+            advancing = false;
+            Debug.Log(advancing);
         }
     }
 }

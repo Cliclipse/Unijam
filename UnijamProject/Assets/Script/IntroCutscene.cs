@@ -7,6 +7,6 @@ public class IntroCutscene : MonoBehaviour
 {
     void OnEnable() 
     {
-        SceneManager.LoadScene("PaquitoScene", LoadSceneMode.Single);
+        SceneManager.LoadScene("nv1_L", LoadSceneMode.Single);
     }
 }
