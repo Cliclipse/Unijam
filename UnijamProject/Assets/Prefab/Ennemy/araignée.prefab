@@ -174,7 +174,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   largeur: 10
-  spiderSound: {fileID: 0}
+  spiderSound: {fileID: 1279825078228104953}
 --- !u!82 &1279825078228104953
 AudioSource:
   m_ObjectHideFlags: 0
@@ -187,7 +187,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 3440631409655039846, guid: a1cfa3138cde99f4d91bd767c5de87e9, type: 2}
   m_audioClip: {fileID: 8300000, guid: 14a5d27f6fcc38345827f1e7de650259, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.05
   m_Pitch: 1
   Loop: 1
   Mute: 0
