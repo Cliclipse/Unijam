@@ -16,7 +16,6 @@ public class Move : MonoBehaviour
     [SerializeField] private float slopeCheckDistance;
 
     private BoxCollider2D _bc2D;
-    private Vector2 _colliderSize;
     
     private Rigidbody2D _rigidbody2D;
     private Boolean _isGrounded;
@@ -77,7 +76,6 @@ public class Move : MonoBehaviour
     void Start()
     {
         _bc2D = GetComponent<BoxCollider2D>();
-        _colliderSize = _bc2D.size;
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = gameObject.GetComponentInChildren<Animator>();
         
@@ -93,37 +91,10 @@ public class Move : MonoBehaviour
 
     private void CheckGround()
     { 
-
-        _isGrounded = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.5f), Vector2.down, 0.3f , LayerMask.GetMask("Platform"));
-        if (_isGrounded)
-        {
-            _animator.SetBool(_jumpHashCode, false);
-        }
+        _isGrounded = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.5f), Vector2.down, 0.2f , LayerMask.GetMask("Platform"));
+        _animator.SetBool(_jumpHashCode, !_isGrounded);
     }
 
-    /*
-    private void CheckSlope()
-    {
-        Vector2 checkPos = transform.position - new Vector3(0.0f , _colliderSize.y/2);
-        CheckSlopeVertical(checkPos);
-    }
-
-    private void CheckSlopeHorizontal(Vector2 checkPos)
-    {
-        
-    }
-    private void CheckSlopeVertical(Vector2 checkPos)
-    {
-        RaycastHit2D hit = Physics2D.Raycast(checkPos, Vector2.down , slopeCheckDistance , _layer); 
-        Debug.Log(hit.point);
-        Debug.Log(hit.normal);
-        Debug.Log(_layer);
-        Debug.DrawRay(hit.point, hit.normal, Color.red);
-    }
-*/
-    
-    
-    // Update is called once per frame
     void Update()
     {
         CheckGround();
