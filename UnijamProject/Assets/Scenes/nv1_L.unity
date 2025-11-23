@@ -512,17 +512,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &383437321 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2732955262378080687, guid: 4cedefc7667a96140a869f06ce328561, type: 3}
-  m_PrefabInstance: {fileID: 2704098467482929109}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &411006250
 GameObject:
   m_ObjectHideFlags: 0
@@ -1903,18 +1892,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2756187668047114665, guid: 58d26bbf70b82d14d8fbb89781281df2, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3443751708600461271, guid: 58d26bbf70b82d14d8fbb89781281df2, type: 3}
       propertyPath: m_Name
       value: HandFlash
       objectReference: {fileID: 0}
-    - target: {fileID: 7346319206374973401, guid: 58d26bbf70b82d14d8fbb89781281df2, type: 3}
-      propertyPath: reloadImage
-      value: 
-      objectReference: {fileID: 383437321}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3877,6 +3858,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 427191078168110437, guid: 4cedefc7667a96140a869f06ce328561, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 22173f182a27b384f9a6d567c7492bca, type: 3}
+    - target: {fileID: 427191078168110437, guid: 4cedefc7667a96140a869f06ce328561, type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: -274894816932794575, guid: a1cfa3138cde99f4d91bd767c5de87e9, type: 2}
     - target: {fileID: 613291018755546520, guid: 4cedefc7667a96140a869f06ce328561, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -4240,6 +4229,18 @@ PrefabInstance:
     - target: {fileID: 7913730362968599146, guid: 4cedefc7667a96140a869f06ce328561, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ResetScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368407035233727870, guid: 4cedefc7667a96140a869f06ce328561, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368407035233727870, guid: 4cedefc7667a96140a869f06ce328561, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 8368407035233727870, guid: 4cedefc7667a96140a869f06ce328561, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 8418361145944985636, guid: 4cedefc7667a96140a869f06ce328561, type: 3}
       propertyPath: m_AnchorMax.y
