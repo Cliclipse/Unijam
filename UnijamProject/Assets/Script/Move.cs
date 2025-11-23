@@ -24,23 +24,25 @@ public class Move : MonoBehaviour
     private Animator _animator;
     private int _runHashCode;
     private int _jumpHashCode;
+    
+    private SpriteRenderer _spriteRenderer;
 
     void MoveManager()
     {
         if (Input.GetKey(right)) {
+            _spriteRenderer.flipX = false;
+
             if (_rigidbody2D.velocity.x < 0 && _isGrounded) _rigidbody2D.velocity = new Vector2(0, 0);
             if (_rigidbody2D.velocity.x < maxSpeed) _rigidbody2D.velocity += speed * Time.deltaTime * Vector2.right;
         }
         
         else if (Input.GetKey(left))
         {
-            if (_rigidbody2D.velocity.x > 0 && _isGrounded)
-            {
-             _rigidbody2D.velocity = new Vector2(0, 0);
-            }
-            {
-                if (-_rigidbody2D.velocity.x < maxSpeed) _rigidbody2D.velocity += speed * Time.deltaTime * Vector2.left;
-            }
+            _spriteRenderer.flipX = true;
+
+            if (_rigidbody2D.velocity.x > 0 && _isGrounded) _rigidbody2D.velocity = new Vector2(0, 0);
+            if (-_rigidbody2D.velocity.x < maxSpeed) _rigidbody2D.velocity += speed * Time.deltaTime * Vector2.left;
+            
         }
         else if (_isGrounded)
         {
@@ -76,6 +78,9 @@ public class Move : MonoBehaviour
         _colliderSize = _bc2D.size;
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = gameObject.GetComponentInChildren<Animator>();
+        
+        _spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+
     }
 
     protected void Awake()
@@ -107,7 +112,7 @@ public class Move : MonoBehaviour
     }
     private void CheckSlopeVertical(Vector2 checkPos)
     {
-        RaycastHit2D hit = Physics2D.Raycast(checkPos, Vector2.down , slopeCheckDistance , _layer);
+        RaycastHit2D hit = Physics2D.Raycast(checkPos, Vector2.down , slopeCheckDistance , _layer); 
         Debug.Log(hit.point);
         Debug.Log(hit.normal);
         Debug.Log(_layer);

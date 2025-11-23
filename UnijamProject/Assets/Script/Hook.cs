@@ -41,14 +41,13 @@ public class Hook : MonoBehaviour
         if ((transform.position - player.transform.position).magnitude > maxRange)
         {
             Destroy(gameObject);
-            player.Reset();        // En vrai faudrait plutôt que ce soit le grappin qui check la distance du hook et reset
+            player.Reset();       // En vrai faudrait plutôt que ce soit le grappin qui check la distance du hook et reset
 
         }
     }
 
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.name);
         FixHook(collision.GetContact(0).point);
     }
 }

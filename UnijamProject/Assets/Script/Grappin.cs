@@ -1,13 +1,18 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Grappin : MonoBehaviour
 {
     [SerializeField] private Camera cameraOfScene;
     [SerializeField] private Hook hook;
-    [SerializeField] private float speedDashGrappin = 50f;
+    [SerializeField] private float speedDashGrappin = 80f;
+    
+    public LineRenderer line;
+
     
     public Vector3 hookPosition;
     
@@ -60,31 +65,9 @@ public class Grappin : MonoBehaviour
         transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f , transform.position.z);
         
         transform.position += Time.deltaTime * speedDashGrappin * new Vector3(_direction.x, _direction.y, 0);
-        _rigidbody2D.gravityScale = 0f;
-        _rigidbody2D.AddForce(speedDashGrappin * _direction , ForceMode2D.Impulse);
-        
+        _rigidbody2D.velocity = _direction.normalized * speedDashGrappin;        
         
     }
-    
-
-/*
-    private void SnkSimulation()
-    {
-        Vector3 delta = speedDashGrappin * Time.deltaTime * _direction;
-        if ((transform.position - hookPosition).magnitude < delta.magnitude)
-        {
-            transform.position = hookPosition;
-            _onTarget = true; 
-            Reset();
-        }
-        else
-        {
-            transform.position += delta;
-            _rigidbody2D.bodyType = RigidbodyType2D.Dynamic; 
-        }
-    }
- */   
-
 
 
     public void Reset()
@@ -97,11 +80,9 @@ public class Grappin : MonoBehaviour
         
         _collider2DPolygon.enabled= false;
         _collider2DBox.enabled = true;
-        _rigidbody2D.gravityScale = 1f;
         _rigidbody2D.velocity = Vector2.zero;
         
-        //_rigidbody2D.bodyType = RigidbodyType2D.Dynamic; 
-        Destroy(_hookInstance);
+        Destroy(_hookInstance.gameObject);
 
         
     }
@@ -109,6 +90,7 @@ public class Grappin : MonoBehaviour
     
     void Start()
     {
+        Physics.defaultMaxDepenetrationVelocity = 10f;
         _rigidbody2D = GetComponent<Rigidbody2D>();
         
         _collider2DBox = GetComponent<PolygonCollider2D>();
@@ -124,6 +106,19 @@ public class Grappin : MonoBehaviour
     {
         if (!_isGrabbing) ClicCheck();
         else if (!_isRushPrepared && isHooked) _SetRushParam();
+        
+        if (_hookInstance != null)
+        {
+            line.enabled = true;
+            line.positionCount = 2; // début + fin
+            line.SetPosition(0, transform.position);
+            line.SetPosition(1, _hookInstance.gameObject.transform.position);
+        }
+        else
+        {
+            line.enabled = false;
+        }
+        Debug.Log(line.enabled);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
@@ -135,3 +130,5 @@ public class Grappin : MonoBehaviour
         }
     }
 }
+
+
