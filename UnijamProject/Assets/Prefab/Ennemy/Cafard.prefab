@@ -312,6 +312,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+  light: {fileID: 807785664206844834}
+  largeur: 10
+  ciblant: 0
   blatteSound: {fileID: 8985831763602208223}
 --- !u!82 &8985831763602208223
 AudioSource:

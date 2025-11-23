@@ -41,8 +41,11 @@ public class Flash : MonoBehaviour
             light.intensity = curve.Evaluate(flashTimer/flashLength);
             flashTimer += Time.deltaTime;
             yield return new WaitForEndOfFrame();
+            if (flashTimer >= flashLength / 5 && collider.enabled)
+            {
+                collider.enabled = false;
+            }
         }
-        collider.enabled = false;
         light.intensity = 0;
         flashTimer = 0;
         
