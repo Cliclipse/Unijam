@@ -967,7 +967,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 436.22, y: -2552.32}
+  m_AnchoredPosition: {x: 437.03, y: -2552.32}
   m_SizeDelta: {x: 615.01, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &277330308
@@ -1046,8 +1046,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 436.22, y: -3294.725}
-  m_SizeDelta: {x: 872.44, y: 0}
+  m_AnchoredPosition: {x: 437.03, y: -3294.725}
+  m_SizeDelta: {x: 874.06, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &278192127
 MonoBehaviour:
@@ -1450,8 +1450,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 436.22, y: -321.76}
-  m_SizeDelta: {x: 844.89, y: 0}
+  m_AnchoredPosition: {x: 437.03, y: -321.76}
+  m_SizeDelta: {x: 853.26, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &369616137
 MonoBehaviour:
@@ -2454,7 +2454,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '- Loann "Etoile" DRUON : level designeret flasheur de couiille'
+  m_text: '- Loann "Etoile" DRUON : Level designer et flasheur de couilles'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2731,7 +2731,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "-Miles \"Bait\" ESPIAND: d\xE9veloppeur Ui et int\xE9grateur de son"
+  m_text: "- Miles \"Bait\" ESPIAND: D\xE9veloppeur UI et int\xE9grateur de son"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2865,7 +2865,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "-Matthieu \"Paquito\" LESBROS: Graphiste et Lumi\xE9re de ma vie"
+  m_text: "- Matthieu \"Paquito\" LESBROS: Graphiste et Lumi\xE8re de ma vie"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4764,8 +4764,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 436.22, y: -1065.28}
-  m_SizeDelta: {x: 804.77, y: 0}
+  m_AnchoredPosition: {x: 437.03, y: -1065.28}
+  m_SizeDelta: {x: 819.77, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1373975707
 MonoBehaviour:
@@ -5102,8 +5102,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 436.22, y: -1808.8}
-  m_SizeDelta: {x: 819.07, y: 0}
+  m_AnchoredPosition: {x: 437.03, y: -1808.8}
+  m_SizeDelta: {x: 845.94, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1645519603
 MonoBehaviour:
@@ -5693,7 +5693,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "-Mathys \"Cliclipse\" VACHON: D\xE9veloppeur \"en marche\" et Grappineur"
+  m_text: "- Mathys \"Cliclipse\" VACHON: D\xE9veloppeur \"en marche\" et grappineur"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
