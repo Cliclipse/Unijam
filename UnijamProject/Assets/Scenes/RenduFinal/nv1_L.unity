@@ -2024,16 +2024,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2384890354060949690, guid: 58d26bbf70b82d14d8fbb89781281df2, type: 3}
-      propertyPath: orthographic
+      propertyPath: m_BackGroundColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384890354060949690, guid: 58d26bbf70b82d14d8fbb89781281df2, type: 3}
+      propertyPath: m_BackGroundColor.b
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384890354060949690, guid: 58d26bbf70b82d14d8fbb89781281df2, type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2384890354060949690, guid: 58d26bbf70b82d14d8fbb89781281df2, type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3359695316590086263, guid: 58d26bbf70b82d14d8fbb89781281df2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3443751708600461271, guid: 58d26bbf70b82d14d8fbb89781281df2, type: 3}
       propertyPath: m_Name
       value: HandFlash
-      objectReference: {fileID: 0}
-    - target: {fileID: 6816941759523361092, guid: 58d26bbf70b82d14d8fbb89781281df2, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
