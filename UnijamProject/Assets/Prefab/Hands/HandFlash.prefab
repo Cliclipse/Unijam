@@ -184,9 +184,9 @@ MonoBehaviour:
   right: 100
   left: 97
   jumpButton: 119
-  speed: 20
+  speed: 30
   jumpPower: 11
-  maxSpeed: 10
+  maxSpeed: 20
   slopeCheckDistance: 0
 --- !u!114 &7346319206374973401
 MonoBehaviour:
