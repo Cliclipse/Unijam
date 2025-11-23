@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class DeathManager :MonoBehaviour
 {
        [SerializeField] private GameObject DeathMenu;
+       [SerializeField] private GameObject EndScreen;
        [SerializeField] private AudioSource deathSound;
        public static DeathManager Instance;
 
@@ -26,7 +27,7 @@ public class DeathManager :MonoBehaviour
               StartCoroutine(FadeCoroutine());
        }
 
-       IEnumerator FadeCoroutine()
+       IEnumerator FadeCoroutine(bool end=false)
        {
               DeathMenu.SetActive(true);
               for (int i = 0; i < 100; i++)
@@ -35,17 +36,26 @@ public class DeathManager :MonoBehaviour
                      DeathMenu.GetComponent<Image>().color = fadecolor;
                      yield return new WaitForEndOfFrame();
               }
-              SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-              deathSound.Play();
+
+              if (end == false)
+              {
+                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                     deathSound.Play();
+              }
+              else
+              {
+                     DeathMenu.SetActive(false);
+                     StartCoroutine(UnfadeCoroutine());
+              }
        }
 
-       IEnumerator UnfadeCoroutine()
+       IEnumerator UnfadeCoroutine(bool end=false)
        {
               
               DeathMenu.SetActive(true);
               Color fadecolor = new Color(0, 0, 0, 255f);
               DeathMenu.GetComponent<Image>().color = fadecolor;
-              yield return new WaitForSeconds(1f);
+              //yield return new WaitForSeconds(1f);
               for (int i = 0; i < 100; i++)
               {
                      fadecolor = new Color(0, 0, 0, (Mathf.Lerp(0, 1, (100-i)/10000.0f)*255f));
@@ -53,6 +63,10 @@ public class DeathManager :MonoBehaviour
                      yield return new WaitForEndOfFrame();
               } 
               DeathMenu.SetActive((false));
+              if (end == true)
+              {
+                     
+              }
               
        }
 }
