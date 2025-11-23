@@ -11,6 +11,8 @@ public class Cafard : MonoBehaviour
     private Vector3 cible;
     private Vector3 posOrigin;
     private Vector3 posTarget;
+    private Rigidbody2D rb2d;
+    private Collider2D coll;
     [SerializeField] private GameObject light;
     [SerializeField] private float largeur = 10f;
     [SerializeField] private bool ciblant = false;
@@ -25,6 +27,8 @@ public class Cafard : MonoBehaviour
             StartCoroutine(move());
         }
         target = GameObject.FindGameObjectWithTag ("Player").transform;
+        rb2d = GetComponent<Rigidbody2D>();
+        coll = GetComponent<Collider2D>();
     }
     void Update()
     {
@@ -41,17 +45,6 @@ public class Cafard : MonoBehaviour
     {
         float distance= Vector3.Distance(Move.Instance.transform.position, this.transform.position);
         blatteSound.volume = 1 / (distance/5);       
-    }
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            DeathManager.Instance.ResetScene(false);
-        }
-        else if (collision.gameObject.CompareTag("Flash"))
-        {
-            Debug.Log("cafard mort");
-        }
     }
     
     IEnumerator move()
@@ -86,6 +79,8 @@ public class Cafard : MonoBehaviour
             enVie = false;
             speed = 0;
             light.SetActive(false);
+            rb2d.gravityScale = 0;
+            coll.enabled = false;
             transform.Rotate(180, 0, 0);
         }
     }
