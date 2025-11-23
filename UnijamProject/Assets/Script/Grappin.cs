@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Grappin : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class Grappin : MonoBehaviour
     [SerializeField] private float speedDashGrappin = 80f;
     [SerializeField] private float grappinCooldown = 20f;
     [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private Image image;
     
     
     public LineRenderer line;
@@ -62,8 +64,14 @@ public class Grappin : MonoBehaviour
     IEnumerator CooldownGrappin()
     {
         _cooldownGrappinAvailable = false;
-
-        yield return new WaitForSeconds(grappinCooldown);
+        float timing = 0;
+        while (timing <= grappinCooldown)
+        {
+            timing += Time.deltaTime;
+            image.fillAmount = 1-(timing / grappinCooldown);
+            Debug.Log(image.fillAmount);
+            yield return new WaitForEndOfFrame();
+        }
         _cooldownGrappinAvailable = true;
     }
     
@@ -125,6 +133,7 @@ public class Grappin : MonoBehaviour
         _direction = (hookPosition - transform.position).normalized;
         
         _drag = _rigidbody2D.drag;
+        image.fillAmount = 0;
 
     }
     void Update()
