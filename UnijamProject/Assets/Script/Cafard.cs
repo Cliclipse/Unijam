@@ -80,6 +80,7 @@ public class Cafard : MonoBehaviour
             speed = 0;
             light.SetActive(false);
             rb2d.gravityScale = 0;
+            rb2d.bodyType = RigidbodyType2D.Static;
             coll.enabled = false;
             transform.Rotate(180, 0, 0);
         }
