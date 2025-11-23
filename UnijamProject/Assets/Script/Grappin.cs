@@ -10,6 +10,8 @@ public class Grappin : MonoBehaviour
     [SerializeField] private Camera cameraOfScene;
     [SerializeField] private Hook hook;
     [SerializeField] private float speedDashGrappin = 80f;
+    [SerializeField] private float grappinCooldown = 20f;
+    
     
     public LineRenderer line;
 
@@ -28,18 +30,19 @@ public class Grappin : MonoBehaviour
 
     private float _distCamera;
 
+
+    private bool _cooldownGrappinAvailable;
     private bool _isGrabbing = false;
     private bool _isHooking = false;
     public bool isHooked = false;
     private bool _isRushPrepared = false;
-    private bool _onTarget = false;
 
     
 
 
     private void ClicCheck()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && _cooldownGrappinAvailable)
         { 
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = 10f; // distance entre la caméra et le plan du jeu
@@ -51,16 +54,24 @@ public class Grappin : MonoBehaviour
                 _isHooking = true;
                 _hookInstance = Instantiate(hook , transform);
                 _hookInstance.transform.localScale *=2 ;
-                Debug.Log(positionClic);
                 
                 Vector2 direction = (positionClic - transform.position ).normalized;
-                Debug.Log(direction);
                 _hookInstance.direction = direction;
                 _hookInstance.player = this;
+                StartCoroutine(CooldownGrappin());
             }
         }
     }
-    
+
+    IEnumerator CooldownGrappin()
+    {
+        _cooldownGrappinAvailable = false;
+        Debug.Log("Grappin has been false");
+
+        yield return new WaitForSeconds(grappinCooldown);
+        _cooldownGrappinAvailable = true;
+        Debug.Log("Grappin has been true");
+    }
     
     private void _SetRushParam()
     {
@@ -86,7 +97,6 @@ public class Grappin : MonoBehaviour
         _isHooking = false;
         isHooked = false;
         _isRushPrepared = false;
-        _onTarget = false;
         
         _collider2DPolygon.enabled= false;
         _collider2DBox.enabled = true;
@@ -103,8 +113,8 @@ public class Grappin : MonoBehaviour
     {
         Physics.defaultMaxDepenetrationVelocity = 5f;
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        
-        
+
+        _cooldownGrappinAvailable = true;
         
         _collider2DBox = GetComponent<PolygonCollider2D>();
         _collider2DPolygon = GetComponent<PolygonCollider2D>();
@@ -112,7 +122,6 @@ public class Grappin : MonoBehaviour
         _collider2DPolygon.enabled= false;
         _collider2DBox.enabled = true;
 
-        _onTarget = false;
         _direction = (hookPosition - transform.position).normalized;
         
         _distCamera = cameraOfScene.transform.position.z;

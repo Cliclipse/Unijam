@@ -134,6 +134,10 @@ PrefabInstance:
       propertyPath: cameraOfScene
       value: 
       objectReference: {fileID: 974730489}
+    - target: {fileID: -329694322969583984, guid: c65e7c008a1326b40851cd4f7894cb2f, type: 3}
+      propertyPath: speedDashGrappin
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 1068733477311296431, guid: c65e7c008a1326b40851cd4f7894cb2f, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
