@@ -91,7 +91,7 @@ public class Move : MonoBehaviour
 
     private void CheckGround()
     { 
-        _isGrounded = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.5f), Vector2.down, 0.2f , LayerMask.GetMask("Platform"));
+        _isGrounded = (Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y - 0.5f), Vector2.down, 0.2f , LayerMask.GetMask("Platform")) || Physics2D.Raycast(new Vector2(transform.position.x+0.1f, transform.position.y - 0.5f), Vector2.down, 0.2f , LayerMask.GetMask("Platform")) || Physics2D.Raycast(new Vector2(transform.position.x -0.1f, transform.position.y - 0.5f), Vector2.down, 0.2f , LayerMask.GetMask("Platform"))) ;
         _animator.SetBool(_jumpHashCode, !_isGrounded);
     }
 
