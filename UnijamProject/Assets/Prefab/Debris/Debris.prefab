@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1250900325501565336}
   - component: {fileID: 254035119395596916}
   - component: {fileID: 945034835125116151}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: FallingObstacle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +286,7 @@ GameObject:
   - component: {fileID: 2919724116690390067}
   - component: {fileID: 5546339639012749473}
   - component: {fileID: 6924070344943460211}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: PreZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -527,7 +527,7 @@ GameObject:
   - component: {fileID: 5383119377462193668}
   - component: {fileID: 1529535180888320618}
   - component: {fileID: 1599217671794976180}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: DetectPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -668,7 +668,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8949127937765024765}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Debris
   m_TagString: Untagged
   m_Icon: {fileID: 0}
