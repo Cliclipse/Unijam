@@ -1162,6 +1162,10 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1250900325501565336, guid: f1921ed41c489b2a69d0f0f73eeac4e3, type: 3}
+      propertyPath: m_ExcludeLayers.m_Bits
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2197313113361230896, guid: f1921ed41c489b2a69d0f0f73eeac4e3, type: 3}
       propertyPath: m_Constraints
       value: 4
@@ -1172,7 +1176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5262309376752810120, guid: f1921ed41c489b2a69d0f0f73eeac4e3, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1.9843497
+      value: 2.118492
       objectReference: {fileID: 0}
     - target: {fileID: 5262309376752810120, guid: f1921ed41c489b2a69d0f0f73eeac4e3, type: 3}
       propertyPath: m_LocalScale.y
@@ -1180,7 +1184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5262309376752810120, guid: f1921ed41c489b2a69d0f0f73eeac4e3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.9763
+      value: -11.0434
       objectReference: {fileID: 0}
     - target: {fileID: 5262309376752810120, guid: f1921ed41c489b2a69d0f0f73eeac4e3, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1741,7 +1745,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 427191078168110437, guid: 4cedefc7667a96140a869f06ce328561, type: 3}
       propertyPath: m_Volume
-      value: 0.277
+      value: 0.203
       objectReference: {fileID: 0}
     - target: {fileID: 427191078168110437, guid: 4cedefc7667a96140a869f06ce328561, type: 3}
       propertyPath: m_audioClip
@@ -3044,7 +3048,7 @@ GameObject:
   - component: {fileID: 1069682643}
   - component: {fileID: 1069682645}
   - component: {fileID: 1069682644}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Square (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3060,8 +3064,8 @@ Transform:
   m_GameObject: {fileID: 1069682642}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.8462, y: -6.0044, z: -0.019268207}
-  m_LocalScale: {x: 1.6981257, y: -5.3316865, z: 1}
+  m_LocalPosition: {x: -8.8288, y: -6.0044, z: -0.019268207}
+  m_LocalScale: {x: 1.6633141, y: -5.3316865, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 612958743}
@@ -4506,7 +4510,7 @@ GameObject:
   - component: {fileID: 1582336663}
   - component: {fileID: 1582336665}
   - component: {fileID: 1582336664}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: Square (9)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4522,8 +4526,8 @@ Transform:
   m_GameObject: {fileID: 1582336662}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.9379, y: -6.0203, z: -0.019268207}
-  m_LocalScale: {x: -3.391728, y: -5.281507, z: 1}
+  m_LocalPosition: {x: -12.9475, y: -6.0203, z: -0.019268207}
+  m_LocalScale: {x: -3.3727343, y: -5.281507, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 612958743}

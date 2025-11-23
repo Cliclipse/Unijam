@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RenduFinal/IntroCutscene.unity
     guid: 06707537e7c6816419f61d0b96adaff6
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: 7c1122824ebf8aa4b9dccf606adf69ec
   m_configObjects: {}
