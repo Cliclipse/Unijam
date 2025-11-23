@@ -11,6 +11,7 @@ public class Cafard : MonoBehaviour
     private Vector3 cible;
     private Vector3 posOrigin;
     private Vector3 posTarget;
+    [SerializeField] private GameObject light;
     [SerializeField] private float largeur = 10f;
     [SerializeField] private bool ciblant = false;
     [SerializeField] private AudioSource blatteSound;
@@ -75,15 +76,17 @@ public class Cafard : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && enVie)
         {
             DeathManager.Instance.ResetScene(false);
         }
         else if (other.gameObject.CompareTag("Flash"))
         {
             Debug.Log("cafard mort");
-            GetComponent<Collider2D>().enabled = false;
+            enVie = false;
             speed = 0;
+            light.SetActive(false);
+            transform.Rotate(180, 0, 0);
         }
     }
 }
