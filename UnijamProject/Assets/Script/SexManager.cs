@@ -41,7 +41,7 @@ public class SexManager : MonoBehaviour
     {
         if (Vector2.Distance(leftHand.transform.position, rightHand.transform.position) <= .5f)
         {
-            
+            DeathManager.Instance.ResetScene(true);
         }
     }
 }

@@ -50,7 +50,7 @@ public class Moustique : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            DeathManager.Instance.ResetScene();
+            DeathManager.Instance.ResetScene(false);
         }
     }
 

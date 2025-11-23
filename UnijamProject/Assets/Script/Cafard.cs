@@ -32,7 +32,7 @@ public class Cafard : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            DeathManager.Instance.ResetScene();
+            DeathManager.Instance.ResetScene(false);
         }
         else if (collision.gameObject.CompareTag("Flash"))
         {

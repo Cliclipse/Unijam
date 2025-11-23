@@ -20,11 +20,11 @@ public class DeathManager :MonoBehaviour
 
        public void SetScene()
        {
-              StartCoroutine(UnfadeCoroutine());
+              StartCoroutine(UnfadeCoroutine(false));
        }
-       public void ResetScene()
+       public void ResetScene(bool end)
        {
-              StartCoroutine(FadeCoroutine());
+              StartCoroutine(FadeCoroutine(end));
        }
 
        IEnumerator FadeCoroutine(bool end=false)
@@ -45,14 +45,18 @@ public class DeathManager :MonoBehaviour
               else
               {
                      DeathMenu.SetActive(false);
-                     StartCoroutine(UnfadeCoroutine());
+                     StartCoroutine(UnfadeCoroutine(false));
               }
        }
 
-       IEnumerator UnfadeCoroutine(bool end=false)
+       IEnumerator UnfadeCoroutine(bool end)
        {
               
               DeathMenu.SetActive(true);
+              if (end == true)
+              {
+                     EndScreen.gameObject.SetActive(true);   
+              }
               Color fadecolor = new Color(0, 0, 0, 255f);
               DeathMenu.GetComponent<Image>().color = fadecolor;
               //yield return new WaitForSeconds(1f);
@@ -63,10 +67,6 @@ public class DeathManager :MonoBehaviour
                      yield return new WaitForEndOfFrame();
               } 
               DeathMenu.SetActive((false));
-              if (end == true)
-              {
-                     
-              }
               
        }
 }

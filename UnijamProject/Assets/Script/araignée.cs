@@ -35,7 +35,7 @@ public class araignée : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            DeathManager.Instance.ResetScene();
+            DeathManager.Instance.ResetScene(false);
         }
     }
     

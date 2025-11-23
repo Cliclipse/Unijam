@@ -41,7 +41,7 @@ namespace Script
         {
             if (collision.gameObject.CompareTag("Player"))
             {
-                DeathManager.Instance.ResetScene();
+                DeathManager.Instance.ResetScene(false);
             }
         }
     }
