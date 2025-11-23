@@ -13,7 +13,7 @@ namespace Script
         private Vector2 fixedPoint;
         private float currentAngle;
         private bool enVie;
-
+        [SerializeField] private AudioSource mosquitoSound;
         void Start()
         {
             //recupere la position de notre moustique a l'origine.
@@ -22,12 +22,19 @@ namespace Script
             enVie = true;
 
         }
+         void son_distance()
+    {
+        float distance= Vector3.Distance(Move.Instance.transform.position, this.transform.position);
+        Debug.Log(distance);
+        mosquitoSound.volume = 1 / (distance/5);       
+    }
 
         void Update()
         {
             currentAngle += angularSpeed * Time.deltaTime;
             Vector2 offset = new Vector2(Mathf.Sin(currentAngle), Mathf.Cos(currentAngle)) * circleRad;
             transform.position = fixedPoint + offset;
+            son_distance();
         }
 
         void OnCollisionEnter2D(Collision2D collision)

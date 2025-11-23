@@ -26,6 +26,8 @@ public class Move : MonoBehaviour
     private int _jumpHashCode;
     
     private SpriteRenderer _spriteRenderer;
+    public static Move Instance;
+
 
     void MoveManager()
     {
@@ -80,7 +82,7 @@ public class Move : MonoBehaviour
         _animator = gameObject.GetComponentInChildren<Animator>();
         
         _spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
-
+        Instance = this;
     }
 
     protected void Awake()
