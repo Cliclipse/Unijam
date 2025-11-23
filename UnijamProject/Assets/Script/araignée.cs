@@ -10,6 +10,7 @@ public class araignée : MonoBehaviour
     public float largeur = 10.0f;
 
     private bool enVie = true;
+    [SerializeField] private AudioSource spiderSound;
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,16 @@ public class araignée : MonoBehaviour
         posTarget = transform.position;
         posTarget[0] += largeur;
         StartCoroutine(move());
+    }
+    void Update()
+    {
+        son_distance();
+    }
+    void son_distance()
+    {
+        float distance= Vector3.Distance(Move.Instance.transform.position, this.transform.position);
+        Debug.Log(distance);
+        spiderSound.volume = 1 / (distance/5);       
     }
     
     void OnCollisionEnter2D(Collision2D collision)
