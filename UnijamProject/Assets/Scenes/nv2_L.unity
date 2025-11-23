@@ -2675,17 +2675,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 2756187668047114665, guid: 58d26bbf70b82d14d8fbb89781281df2, type: 3}
-      propertyPath: m_SortingOrder
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 3443751708600461271, guid: 58d26bbf70b82d14d8fbb89781281df2, type: 3}
       propertyPath: m_Name
       value: HandFlash
-      objectReference: {fileID: 0}
-    - target: {fileID: 7346319206374973401, guid: 58d26bbf70b82d14d8fbb89781281df2, type: 3}
-      propertyPath: reloadImage
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
