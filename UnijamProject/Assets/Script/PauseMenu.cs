@@ -7,13 +7,11 @@ public class PauseMenu : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] GameObject pauseMenu;
-    [SerializeField] bool paused;
-    [SerializeField] TMPro.TMP_Text textNiveau;
+    [SerializeField] private bool paused;
     void Start()
     {
         paused = true;
         ShowPauseMenu();
-        checkLevel();
     }
 
     void Update()
@@ -46,14 +44,6 @@ public class PauseMenu : MonoBehaviour
         SceneManager.LoadScene("MainScreen");
     }
 
-    private void checkLevel()
-    {
-        string text = "Vous êtes actuellement au";
-        if (SceneManager.GetActiveScene().name == "nv1_L")
-        {
-            text += "Tutoriel Lumiére";
-        }
-        textNiveau.text = text;
-    }
+  
     
 }

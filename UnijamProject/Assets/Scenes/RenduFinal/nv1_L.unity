@@ -1892,9 +1892,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2384890354060949690, guid: 58d26bbf70b82d14d8fbb89781281df2, type: 3}
+      propertyPath: orthographic
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3443751708600461271, guid: 58d26bbf70b82d14d8fbb89781281df2, type: 3}
       propertyPath: m_Name
       value: HandFlash
+      objectReference: {fileID: 0}
+    - target: {fileID: 6816941759523361092, guid: 58d26bbf70b82d14d8fbb89781281df2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2109,7 +2117,7 @@ Transform:
   m_GameObject: {fileID: 1069584974}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 16.44, y: 2.49, z: 25.1}
+  m_LocalPosition: {x: 16.44, y: 2.49, z: 2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
