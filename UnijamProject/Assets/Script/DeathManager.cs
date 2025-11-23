@@ -50,7 +50,7 @@ public class DeathManager :MonoBehaviour
               }
               else if (SceneManager.GetActiveScene().name == "nv1_L")
               {
-                     text = "nv1_G";
+                     text = "EndScene";
               }
               else if (SceneManager.GetActiveScene().name == "nv1_G")
               {
