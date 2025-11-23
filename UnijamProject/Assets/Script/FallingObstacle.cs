@@ -10,6 +10,8 @@ public class FallingObstacle : MonoBehaviour
 
     [SerializeField] private bool notDeadly;
     private bool isFalling = false;
+
+    private bool render = false;
     private Vector3 originPos;
     private Quaternion originRotation;
 
@@ -27,7 +29,6 @@ public class FallingObstacle : MonoBehaviour
         }
         else
         {
-            this.GetComponent<Rigidbody2D>().gravityScale=0;
             this.stopFalling();
         }
 
@@ -51,6 +52,13 @@ public class FallingObstacle : MonoBehaviour
         this.isFalling=newState;
     }
 
+    public void setRender(bool newState)
+    {
+
+        this.render=newState;
+    }
+
+
     public bool getDidFall()
     {
         return this.didFall;
@@ -61,11 +69,12 @@ public class FallingObstacle : MonoBehaviour
         audioSourcefall.Stop();
         this.GetComponent<Rigidbody2D>().gravityScale=1;
         this.setFalling(true);
+        this.render=true;
     }
 
     private void stopFalling()
     {
-        //GetComponent<Rigidbody2D>().gravityScale=0;
+        GetComponent<Rigidbody2D>().gravityScale=0;
         this.setFalling(false);
     }
 
@@ -79,8 +88,6 @@ public class FallingObstacle : MonoBehaviour
         this.GetComponent<Rigidbody2D>().angularVelocity = 0f;
 
     }
-
-
 
     void OnCollisionEnter2D(Collision2D other)
     {  
@@ -101,6 +108,10 @@ public class FallingObstacle : MonoBehaviour
             else
             {
                 this.TPOrigin();
+                if (!this.render)
+                {
+                    this.stopFalling();
+                }
             }
             
         }

@@ -26,7 +26,7 @@ namespace Script
     {
         float distance= Vector3.Distance(Move.Instance.transform.position, this.transform.position);
         Debug.Log(distance);
-        mosquitoSound.volume = 1 / (distance/5);       
+        mosquitoSound.volume = 1 / (distance/3);       
     }
 
         void Update()
