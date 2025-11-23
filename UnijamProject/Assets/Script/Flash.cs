@@ -18,6 +18,7 @@ public class Flash : MonoBehaviour
     void Start()
     {
         collider.enabled = false;
+        reloadImage.fillAmount = 0;
     }
     void Update()
     {
@@ -39,7 +40,6 @@ public class Flash : MonoBehaviour
         {
             light.intensity = curve.Evaluate(flashTimer/flashLength);
             flashTimer += Time.deltaTime;
-            reloadImage.fillAmount = 1-(flashTimer / flashLength);
             yield return new WaitForEndOfFrame();
         }
         collider.enabled = false;
