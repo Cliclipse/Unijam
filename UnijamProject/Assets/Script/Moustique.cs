@@ -77,6 +77,7 @@ public class Moustique : MonoBehaviour
                 this.transform.position = Vector3.MoveTowards(transform.position, posTargetBas, speed * Time.deltaTime);
                 yield return new WaitForEndOfFrame();
             }
+            transform.Rotate(0, 180, 0);
             //Debug.Log("Oh no");
             while (this.transform.position != posTargetCote)
             {
@@ -96,6 +97,8 @@ public class Moustique : MonoBehaviour
                 transform.position = Vector3.MoveTowards(transform.position, pos_origin, speed * Time.deltaTime);
                 yield return new WaitForEndOfFrame();
             }
+            transform.Rotate(0, 180, 0);
+
             //Debug.Log("c'est fini2");
         }
         

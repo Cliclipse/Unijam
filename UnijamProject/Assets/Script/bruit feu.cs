@@ -19,7 +19,7 @@ public class bruitfeu : MonoBehaviour
         void son_distance()
         {
             float distance= Vector3.Distance(Move.Instance.transform.position, this.transform.position);
-            Debug.Log(distance);
+            //Debug.Log(distance);
             fireSound.volume = 1 / (distance/5);       
         }
 }
