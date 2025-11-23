@@ -1207,6 +1207,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 989173856720532108, guid: 4cedefc7667a96140a869f06ce328561, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1477259469513691730, guid: 4cedefc7667a96140a869f06ce328561, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
