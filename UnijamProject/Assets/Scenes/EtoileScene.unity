@@ -135,6 +135,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1485347272}
     - target: {fileID: 1068733477311296431, guid: c65e7c008a1326b40851cd4f7894cb2f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068733477311296431, guid: c65e7c008a1326b40851cd4f7894cb2f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1068733477311296431, guid: c65e7c008a1326b40851cd4f7894cb2f, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -177,6 +185,22 @@ PrefabInstance:
     - target: {fileID: 3443751708600461271, guid: c65e7c008a1326b40851cd4f7894cb2f, type: 3}
       propertyPath: m_Name
       value: HandGrappin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8008015811040592371, guid: c65e7c008a1326b40851cd4f7894cb2f, type: 3}
+      propertyPath: m_LinearDrag
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8008015811040592371, guid: c65e7c008a1326b40851cd4f7894cb2f, type: 3}
+      propertyPath: m_GravityScale
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058798689900585532, guid: c65e7c008a1326b40851cd4f7894cb2f, type: 3}
+      propertyPath: speed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8058798689900585532, guid: c65e7c008a1326b40851cd4f7894cb2f, type: 3}
+      propertyPath: jumpPower
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -492,7 +516,7 @@ Transform:
   m_GameObject: {fileID: 1598183508}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.78, y: 6.47, z: 0}
+  m_LocalPosition: {x: 4.54, y: 3.1, z: 0}
   m_LocalScale: {x: 2.7486465, y: 0.91417724, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
