@@ -30,7 +30,6 @@ public class DeathManager :MonoBehaviour
               for (int i = 0; i < 100; i++)
               {
                      Color fadecolor = new Color(0, 0, 0, Mathf.Lerp(0, 1, i/10000.0f)*255f);
-                     Debug.Log(fadecolor.a);
                      DeathMenu.GetComponent<Image>().color = fadecolor;
                      yield return new WaitForEndOfFrame();
               }
@@ -47,7 +46,6 @@ public class DeathManager :MonoBehaviour
               for (int i = 0; i < 100; i++)
               {
                      fadecolor = new Color(0, 0, 0, (Mathf.Lerp(0, 1, (100-i)/10000.0f)*255f));
-                     Debug.Log(fadecolor.a);
                      DeathMenu.GetComponent<Image>().color = fadecolor;
                      yield return new WaitForEndOfFrame();
               } 
