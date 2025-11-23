@@ -43,7 +43,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ReturnToMainMenu()
     {
-        SceneManager.LoadScene("BaitScene");
+        SceneManager.LoadScene("MainScreen");
     }
 
     private void checkLevel()
