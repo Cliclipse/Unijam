@@ -25,6 +25,7 @@ public class Grappin : MonoBehaviour
     private Collider2D _collider2DPolygon;
     private Collider2D _collider2DBox;
 
+    private float _distCamera;
 
     private bool _isGrabbing = false;
     private bool _isHooking = false;
@@ -37,18 +38,23 @@ public class Grappin : MonoBehaviour
 
     private void ClicCheck()
     {
-        Vector3 mousePosition = Input.mousePosition;
-        Vector2 positionClic = cameraOfScene.ScreenToWorldPoint(mousePosition);
-        Debug.Log(positionClic);
         if (Input.GetMouseButton(0))
-        {
+        { 
+            Vector3 mousePos = Input.mousePosition;
+            mousePos.z = 10f; // distance entre la caméra et le plan du jeu
+            Vector3 positionClic = cameraOfScene.ScreenToWorldPoint(mousePos);
+            
             _isGrabbing = true;
             if (!_isHooking)
             {
                 _isHooking = true;
                 _hookInstance = Instantiate(hook , transform);
                 _hookInstance.transform.localScale *=2 ;
-                _hookInstance.direction = (positionClic - new Vector2(transform.position.x, transform.position.y) ).normalized;
+                Debug.Log(positionClic);
+                
+                Vector2 direction = (positionClic - transform.position ).normalized;
+                Debug.Log(direction);
+                _hookInstance.direction = direction;
                 _hookInstance.player = this;
             }
         }
@@ -57,18 +63,18 @@ public class Grappin : MonoBehaviour
     
     private void _SetRushParam()
     {
-        _isRushPrepared = true;
         
         _collider2DPolygon.enabled= true;
         _collider2DBox.enabled = false;
         
         
         _direction = (hookPosition - transform.position).normalized;
-        transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f , transform.position.z);
+        transform.position = new Vector3(transform.position.x, transform.position.y + 0.75f , transform.position.z);
         
         transform.position += Time.deltaTime * speedDashGrappin * new Vector3(_direction.x, _direction.y, 0);
         _rigidbody2D.velocity = _direction.normalized * speedDashGrappin;        
-        
+        _isRushPrepared = true;
+
     }
 
 
@@ -95,6 +101,8 @@ public class Grappin : MonoBehaviour
         Physics.defaultMaxDepenetrationVelocity = 5f;
         _rigidbody2D = GetComponent<Rigidbody2D>();
         
+        
+        
         _collider2DBox = GetComponent<PolygonCollider2D>();
         _collider2DPolygon = GetComponent<PolygonCollider2D>();
         
@@ -103,6 +111,8 @@ public class Grappin : MonoBehaviour
 
         _onTarget = false;
         _direction = (hookPosition - transform.position).normalized;
+        
+        _distCamera = cameraOfScene.transform.position.z;
     }
     void Update()
     {
@@ -120,7 +130,6 @@ public class Grappin : MonoBehaviour
         {
             line.enabled = false;
         }
-        Debug.Log(line.enabled);
     }
 
     private void OnCollisionEnter2D(Collision2D other)
