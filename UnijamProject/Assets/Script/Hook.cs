@@ -8,6 +8,7 @@ public class Hook : MonoBehaviour
     [SerializeField] private float speed = 90f;
     [SerializeField] private float maxRange = 20f;
     [SerializeField] private float minRange = 0.25f;
+    
 
 
     public Grappin player;
@@ -18,6 +19,7 @@ public class Hook : MonoBehaviour
     void Start()
     {
         _onTarget = false;
+        transform.LookAt(direction);
     }
 
     void FixHook(Vector2 contactPoint)
