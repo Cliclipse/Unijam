@@ -20,4 +20,17 @@ public class ColliderCheckDebris : MonoBehaviour
         
 
     }
+
+    void OnTriggerExit2D(Collider2D other)
+    {   
+        Debug.Log("exit");
+
+        if (other.gameObject.CompareTag("Player"))
+        {
+            obstacle.GetComponent<FallingObstacle>().setRender(false);
+        }
+        
+
+    }
+
 }
