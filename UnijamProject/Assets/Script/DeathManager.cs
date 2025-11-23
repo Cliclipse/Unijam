@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class DeathManager :MonoBehaviour
 {
        [SerializeField] private GameObject DeathMenu;
+       [SerializeField] private AudioSource deathSound;
        public static DeathManager Instance;
+
 
        private void Start()
        {
@@ -34,6 +36,7 @@ public class DeathManager :MonoBehaviour
                      yield return new WaitForEndOfFrame();
               }
               SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+              deathSound.Play();
        }
 
        IEnumerator UnfadeCoroutine()
@@ -50,5 +53,6 @@ public class DeathManager :MonoBehaviour
                      yield return new WaitForEndOfFrame();
               } 
               DeathMenu.SetActive((false));
+              
        }
 }
