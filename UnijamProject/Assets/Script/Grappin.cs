@@ -1,9 +1,5 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
-using System.Runtime.InteropServices;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Grappin : MonoBehaviour
 {
@@ -11,6 +7,7 @@ public class Grappin : MonoBehaviour
     [SerializeField] private Hook hook;
     [SerializeField] private float speedDashGrappin = 80f;
     [SerializeField] private float grappinCooldown = 20f;
+    [SerializeField] private SpriteRenderer spriteRenderer;
     
     
     public LineRenderer line;
@@ -28,7 +25,6 @@ public class Grappin : MonoBehaviour
     private Collider2D _collider2DPolygon;
     private Collider2D _collider2DBox;
 
-    private float _distCamera;
 
 
     private bool _cooldownGrappinAvailable;
@@ -66,15 +62,19 @@ public class Grappin : MonoBehaviour
     IEnumerator CooldownGrappin()
     {
         _cooldownGrappinAvailable = false;
-        Debug.Log("Grappin has been false");
 
         yield return new WaitForSeconds(grappinCooldown);
         _cooldownGrappinAvailable = true;
-        Debug.Log("Grappin has been true");
     }
     
     private void _SetRushParam()
     {
+        if (_hookInstance.transform.position.x < transform.position.x)
+            spriteRenderer.flipX = true;
+        else
+        {
+            spriteRenderer.flipX = false;
+        }
         
         _collider2DPolygon.enabled= true;
         _collider2DBox.enabled = false;
@@ -124,7 +124,6 @@ public class Grappin : MonoBehaviour
 
         _direction = (hookPosition - transform.position).normalized;
         
-        _distCamera = cameraOfScene.transform.position.z;
         _drag = _rigidbody2D.drag;
 
     }
