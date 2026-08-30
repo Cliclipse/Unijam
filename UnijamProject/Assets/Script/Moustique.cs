@@ -43,7 +43,6 @@ public class Moustique : MonoBehaviour
     void son_distance()
     {
         float distance= Vector3.Distance(Move.Instance.transform.position, this.transform.position);
-        Debug.Log(distance);
         mosquitoSound.volume = 1 / (distance/3);       
     }
     void OnCollisionEnter2D(Collision2D collision)

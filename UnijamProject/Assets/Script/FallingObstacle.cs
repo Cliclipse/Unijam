@@ -80,7 +80,7 @@ public class FallingObstacle : MonoBehaviour
 
     private void TPOrigin()
     {
-        Debug.Log("TP");
+      
         
         this.GetComponent<Transform>().position=this.originPos;
         this.GetComponent<Transform>().rotation=this.originRotation;
@@ -95,7 +95,6 @@ public class FallingObstacle : MonoBehaviour
         {
             if (isFalling && !notDeadly)
             {
-                Debug.Log("mort");
                 DeathManager.Instance.ResetScene(false);
             }
         }

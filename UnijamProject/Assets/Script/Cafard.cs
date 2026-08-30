@@ -69,7 +69,6 @@ public class Cafard : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("kill");
         if (other.gameObject.CompareTag("Player") && enVie)
         {
             DeathManager.Instance.ResetScene(false);

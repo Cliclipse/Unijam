@@ -1,5 +1,97 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &398144311448978429
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7113393993706718495}
+  - component: {fileID: 2884678347853044987}
+  - component: {fileID: 3148050048290772738}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7113393993706718495
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398144311448978429}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 7.04, z: -8}
+  m_LocalScale: {x: 2.7259, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1068733477311296431}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &2884678347853044987
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398144311448978429}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 1}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 0
+  orthographic size: 5
+  m_Depth: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!81 &3148050048290772738
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398144311448978429}
+  m_Enabled: 1
 --- !u!1 &572242073090931707
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +320,7 @@ Transform:
   m_LocalScale: {x: 0.2, y: 0.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 7113393993706718495}
   - {fileID: 1949816261923350902}
   - {fileID: 391793492958673090}
   - {fileID: 8512116931772507916}
@@ -336,7 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bce0e92d3835bc42bcdeedbea8e285b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraOfScene: {fileID: 3061189151266156551}
+  cameraOfScene: {fileID: 2884678347853044987}
   hook: {fileID: 2206841067571638798, guid: a404097bd4f0f8c43adff61dad45549f, type: 3}
   speedDashGrappin: 30
   grappinCooldown: 1
@@ -392,10 +485,10 @@ PolygonCollider2D:
     - - {x: 0.9325272, y: 1.9480629}
       - {x: -1.3372957, y: 1.9517549}
       - {x: -2.091043, y: 1.0563637}
-      - {x: -2.1090653, y: -0.33556205}
-      - {x: -0.7064692, y: -0.32038394}
-      - {x: 0.12114853, y: -0.35060245}
-      - {x: 1.5156662, y: -0.40885782}
+      - {x: -2.1196654, y: -0.017578244}
+      - {x: -0.685269, y: -0.05539742}
+      - {x: 0.08935064, y: -0.08561596}
+      - {x: 1.4732683, y: -0.13327184}
       - {x: 1.5268943, y: 0.9878715}
   m_UseDelaunayMesh: 0
 --- !u!1 &3455342063935754231
@@ -432,8 +525,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 750, y: -312}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 750, y: -391}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &510730506587928850
 CanvasRenderer:

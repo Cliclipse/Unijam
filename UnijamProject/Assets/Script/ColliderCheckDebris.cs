@@ -14,7 +14,6 @@ public class ColliderCheckDebris : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("trigger debris fall");
             obstacle.GetComponent<FallingObstacle>().startFalling();
         }
         
@@ -23,7 +22,6 @@ public class ColliderCheckDebris : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {   
-        Debug.Log("exit");
 
         if (other.gameObject.CompareTag("Player"))
         {

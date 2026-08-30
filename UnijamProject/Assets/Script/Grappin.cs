@@ -40,7 +40,7 @@ public class Grappin : MonoBehaviour
 
     private void ClicCheck()
     {
-        if (Input.GetMouseButton(0) && _cooldownGrappinAvailable)
+        if (Input.GetMouseButton(0) && _cooldownGrappinAvailable && !PauseMenu.Instance.paused)
         { 
             Vector3 mousePos = Input.mousePosition;
             mousePos.z = 10f; // distance entre la caméra et le plan du jeu

@@ -6640,6 +6640,8 @@ MonoBehaviour:
   mainMenu: {fileID: 371587173}
   settingsMenu: {fileID: 138968334}
   CreditsMenu: {fileID: 1910898419}
+  data:
+    first: 0
 --- !u!82 &2010975473
 AudioSource:
   m_ObjectHideFlags: 0

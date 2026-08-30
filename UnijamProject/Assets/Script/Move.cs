@@ -2,13 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Move : MonoBehaviour
 {
 
-    [SerializeField] private KeyCode right = KeyCode.D;
-    [SerializeField] private KeyCode left = KeyCode.A;
-    [SerializeField] private KeyCode jumpButton = KeyCode.W;
+    [SerializeField] public KeyCode right = KeyCode.D;
+    [SerializeField] public KeyCode left = KeyCode.A;
+    [SerializeField] public KeyCode jumpButton = KeyCode.W;
     [SerializeField] private float speed = 5f;
     [SerializeField] private float jumpPower = 10f;
     [SerializeField] private float maxSpeed = 10f;
@@ -70,6 +71,7 @@ public class Move : MonoBehaviour
             _rigidbody2D.AddForce(Vector2.up * jumpPower, ForceMode2D.Impulse);
         }
     }
+
     
     
     // Start is called before the first frame update
@@ -80,13 +82,22 @@ public class Move : MonoBehaviour
         _animator = gameObject.GetComponentInChildren<Animator>();
         
         _spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
-        Instance = this;
+        /*if (SceneManager.GetActiveScene().name != "nv1_L")
+        {
+            Debug.Log("Change !");
+            PauseMenu.Instance.UpdateButton();
+        }
+        else
+        {
+            PauseMenu.Instance.SetButton();
+        }*/
     }
 
     protected void Awake()
     {
         _runHashCode = Animator.StringToHash("IsWalking");
         _jumpHashCode = Animator.StringToHash("IsJumping");
+        Instance = this;
     }
 
     private void CheckGround()
@@ -97,8 +108,11 @@ public class Move : MonoBehaviour
 
     void Update()
     {
-        CheckGround();
-        JumpManager();
-        MoveManager();
+        if (!PauseMenu.Instance.paused)
+        {
+            CheckGround();
+            JumpManager();
+            MoveManager();
+        }
     }
 }

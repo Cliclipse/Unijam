@@ -21,7 +21,7 @@ public class DeathManager :MonoBehaviour
 
        public void SetScene()
        {
-              StartCoroutine(UnfadeCoroutine(false));
+              StartCoroutine(UnfadeCoroutine());
        }
        public void ResetScene(bool end)
        {
@@ -80,38 +80,32 @@ public class DeathManager :MonoBehaviour
               {
                      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                      deathSound.Play();
+                     StartCoroutine(UnfadeCoroutine());
               }
               else
               {
                      DeathMenu.SetActive(false);
-                     StartCoroutine(UnfadeCoroutine(true));
+                     EndScreen.SetActive(true);
               }
+              
        }
 
-       IEnumerator UnfadeCoroutine(bool end)
+       IEnumerator UnfadeCoroutine()
        {
-              
-             
-              if (end == true)
+              DeathMenu.SetActive(true);
+              Color fadecolor = new Color(0, 0, 0, 255f);
+              DeathMenu.GetComponent<Image>().color = fadecolor;
+              //yield return new WaitForSeconds(1f);
+              for (int i = 0; i < 100; i++)
               {
-                     EndScreen.gameObject.SetActive(true);
-                     
-              }
-              else
-              {
-                     DeathMenu.SetActive(true);
-                     Color fadecolor = new Color(0, 0, 0, 255f);
+                     fadecolor = new Color(0, 0, 0, (Mathf.Lerp(0, 1, (100-i)/10000.0f)*255f));
                      DeathMenu.GetComponent<Image>().color = fadecolor;
-                     //yield return new WaitForSeconds(1f);
-                     for (int i = 0; i < 100; i++)
-                     {
-                            fadecolor = new Color(0, 0, 0, (Mathf.Lerp(0, 1, (100-i)/10000.0f)*255f));
-                            DeathMenu.GetComponent<Image>().color = fadecolor;
-                            yield return new WaitForEndOfFrame();
-                     }    
-              }
-              
+                     yield return new WaitForEndOfFrame();
+              }    
               DeathMenu.SetActive((false));
+
+              
+              
               
        }
 }
